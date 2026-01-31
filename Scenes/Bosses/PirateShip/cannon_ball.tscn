@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cylatfk5cajcb"]
+
+[ext_resource type="Script" uid="uid://b08ymcjf31x8m" path="res://Scripts/Bosses/PirateShip/cannon_ball.gd" id="1_yfbqx"]
+[ext_resource type="Texture2D" uid="uid://bp38d61uvudu5" path="res://icon.svg" id="1_yuja8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yfbqx"]
+radius = 12.0
+
+[node name="CannonBall" type="CharacterBody2D" unique_id=2053851857]
+collision_mask = 2
+script = ExtResource("1_yfbqx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=625756001]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_yuja8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1281823454]
+shape = SubResource("CircleShape2D_yfbqx")
