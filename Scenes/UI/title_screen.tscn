@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dok28fdqeiw8b"]
+
+[ext_resource type="Script" uid="uid://3jh45j4q006x" path="res://Scripts/Logic/title_screen.gd" id="1_4cksx"]
+[ext_resource type="Theme" uid="uid://dotb6sft7w5ha" path="res://Assets/Themes/title_screen_buttons.tres" id="2_rxodg"]
+[ext_resource type="FontFile" uid="uid://c2btd70nrwns4" path="res://Assets/Other/Fonts/PixelOperator8.ttf" id="3_eufl6"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4cksx")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -133.0
+offset_right = 50.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_rxodg")
+theme_override_fonts/font = ExtResource("3_eufl6")
+text = "Start"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_rxodg")
+theme_override_fonts/font = ExtResource("3_eufl6")
+text = "Options
+"
+
+[node name="Credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_rxodg")
+theme_override_fonts/font = ExtResource("3_eufl6")
+text = "Credits"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]

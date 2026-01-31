@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dym6etkh5cfk5"]
+
+[ext_resource type="AudioStream" uid="uid://cq74ywaulgqw4" path="res://Assets/Music/Mesmerizing Galaxy Loop.mp3" id="1_ycaf8"]
+
+[node name="TitleScreenMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_ycaf8")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"

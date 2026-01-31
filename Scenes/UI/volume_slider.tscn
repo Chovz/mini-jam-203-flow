@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://b6cxywfl0scjo"]
+
+[ext_resource type="Script" uid="uid://b4lpclcoufygs" path="res://Scripts/Logic/volume_slider.gd" id="1_1ixus"]
+[ext_resource type="Texture2D" uid="uid://jajgde0qp4xc" path="res://Assets/Other/Circle.png" id="1_28xn4"]
+[ext_resource type="Texture2D" uid="uid://dg1txi46kwqgi" path="res://Assets/Other/Circle2.png" id="2_o4gxf"]
+[ext_resource type="Texture2D" uid="uid://dqk04wh11anuy" path="res://Assets/Other/Circle3.png" id="2_xqop2"]
+
+[sub_resource type="Image" id="Image_xqop2"]
+data = {
+"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0),
+"format": "RGBA8",
+"height": 16,
+"mipmaps": false,
+"width": 4
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_75x6n"]
+image = SubResource("Image_xqop2")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2kjv"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_107ki"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_183vx"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="Theme" id="Theme_uvg8i"]
+HSlider/constants/center_grabber = 0
+HSlider/constants/grabber_offset = 0
+HSlider/icons/grabber = ExtResource("1_28xn4")
+HSlider/icons/grabber_disabled = ExtResource("2_xqop2")
+HSlider/icons/grabber_highlight = ExtResource("2_o4gxf")
+HSlider/icons/tick = SubResource("ImageTexture_75x6n")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_m2kjv")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_107ki")
+HSlider/styles/slider = SubResource("StyleBoxFlat_183vx")
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_xqop2"]
+color = Color(0.937255, 0.960784, 0.937255, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_8guwl"]
+color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_bdbrb"]
+color = Color(0.937255, 0.960784, 0.937255, 1)
+thickness = 4
+
+[node name="VolumeSlider" type="HSlider"]
+offset_right = 230.0
+offset_bottom = 29.0
+theme = SubResource("Theme_uvg8i")
+theme_override_icons/grabber = ExtResource("1_28xn4")
+theme_override_icons/grabber_highlight = ExtResource("2_o4gxf")
+theme_override_icons/grabber_disabled = ExtResource("2_xqop2")
+theme_override_styles/slider = SubResource("StyleBoxLine_xqop2")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_8guwl")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_bdbrb")
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_1ixus")
+
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]

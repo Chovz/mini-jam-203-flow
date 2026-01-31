@@ -11,8 +11,22 @@ config_version=5
 [application]
 
 config/name="Mini Jam 203 Flow"
+run/main_scene="uid://cfltu023ojow7"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*uid://bku6tpfrehypw"
+GameMusic="*uid://770d5f1k5uh3"
+TitleScreenMusic="*uid://dym6etkh5cfk5"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/resizable=false
+window/stretch/scale_mode="integer"
 
 [physics]
 

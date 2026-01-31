@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cqe7w7oh33yca"]
+
+[ext_resource type="Texture2D" uid="uid://b8pfhbr0bh42a" path="res://Assets/Farmer/Weapon.png" id="1_65piv"]
+[ext_resource type="Script" uid="uid://lsp7u0wl23su" path="res://Scenes/GUI/hud.gd" id="1_ok2ij"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pne3g"]
+atlas = ExtResource("1_65piv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfrcj"]
+atlas = ExtResource("1_65piv")
+region = Rect2(480, 0, 32, 32)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -205.0
+offset_top = -112.0
+offset_right = -594.0
+offset_bottom = -336.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ok2ij")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 210.0
+offset_right = 40.0
+offset_bottom = 218.0
+theme_override_font_sizes/font_size = 8
+text = "Shift"
+
+[node name="Melee" type="TextureRect" parent="Label"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = -12.0
+offset_right = 60.0
+offset_bottom = 20.0
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_pne3g")
+stretch_mode = 4
+
+[node name="Magic" type="TextureRect" parent="Label"]
+visible = false
+layout_mode = 0
+offset_left = 28.0
+offset_top = -12.0
+offset_right = 60.0
+offset_bottom = 20.0
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_pfrcj")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 3.0
+offset_right = 96.0
+offset_bottom = 19.0
+theme_override_font_sizes/font_size = 8
+text = "Score: 0"
