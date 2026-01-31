@@ -5,7 +5,7 @@
 
 [node name="Test" type="Node2D" unique_id=519426123]
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1796924905]
+[node name="Player" type="Sprite2D" parent="." unique_id=1796924905 groups=["Player"]]
 position = Vector2(368, 385)
 texture = ExtResource("1_lv4kk")
 
