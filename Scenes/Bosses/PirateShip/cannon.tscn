@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://75incilhsybi"]
+
+[ext_resource type="Script" uid="uid://dgt6tpsw1p48u" path="res://Scripts/Bosses/PirateShip/cannon.gd" id="1_2jt1i"]
+
+[node name="Cannon" type="Node2D" unique_id=1871036018]
+script = ExtResource("1_2jt1i")
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=455569583]
+one_shot = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

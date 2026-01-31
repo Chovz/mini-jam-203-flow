@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c66hoyvlg1sqd"]
+
+[ext_resource type="Texture2D" uid="uid://bp38d61uvudu5" path="res://icon.svg" id="1_lv4kk"]
+[ext_resource type="PackedScene" uid="uid://datenys4hvh04" path="res://Scenes/Bosses/PirateShip/pirate_ship.tscn" id="2_kw72p"]
+
+[node name="Test" type="Node2D" unique_id=519426123]
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1796924905]
+position = Vector2(368, 385)
+texture = ExtResource("1_lv4kk")
+
+[node name="PirateShip" parent="." unique_id=505851544 instance=ExtResource("2_kw72p")]
+position = Vector2(1023, 463)

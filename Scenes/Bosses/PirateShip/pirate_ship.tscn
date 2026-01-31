@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://datenys4hvh04"]
+
+[ext_resource type="Script" uid="uid://cnm1pnab2ahd4" path="res://Scripts/Bosses/PirateShip/pirate_ship.gd" id="1_wyf30"]
+[ext_resource type="Texture2D" uid="uid://btstqvi3ly3lr" path="res://Assets/Sprites/Bosses/PirateShip/BossBoat-Sheet.png" id="2_068at"]
+[ext_resource type="PackedScene" uid="uid://75incilhsybi" path="res://Scenes/Bosses/PirateShip/cannon.tscn" id="3_068at"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6xci"]
+size = Vector2(175, 346)
+
+[node name="PirateShip" type="StaticBody2D" unique_id=505851544]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("1_wyf30")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=685012834]
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("2_068at")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=463565326]
+position = Vector2(41.5, 7)
+shape = SubResource("RectangleShape2D_l6xci")
+
+[node name="Cannons" type="Node2D" parent="." unique_id=1155142977]
+
+[node name="Cannon" parent="Cannons" unique_id=1871036018 instance=ExtResource("3_068at")]
+position = Vector2(-48, -7)
+
+[node name="Cannon2" parent="Cannons" unique_id=1825991748 instance=ExtResource("3_068at")]
+position = Vector2(-59, 26)
+
+[node name="Cannon3" parent="Cannons" unique_id=1026875840 instance=ExtResource("3_068at")]
+position = Vector2(-18, 21)
+
+[node name="Cannon4" parent="Cannons" unique_id=1287188375 instance=ExtResource("3_068at")]
+position = Vector2(-38, 62)
+
+[node name="Cannon5" parent="Cannons" unique_id=147182221 instance=ExtResource("3_068at")]
+position = Vector2(-4, 64)
+
+[node name="Cannon6" parent="Cannons" unique_id=1009618320 instance=ExtResource("3_068at")]
+position = Vector2(29, 54)
+
+[node name="Cannon7" parent="Cannons" unique_id=147126005 instance=ExtResource("3_068at")]
+position = Vector2(-18, 99)
+
+[node name="Cannon8" parent="Cannons" unique_id=330513697 instance=ExtResource("3_068at")]
+position = Vector2(18, 102)
+
+[node name="Cannon9" parent="Cannons" unique_id=1034975832 instance=ExtResource("3_068at")]
+position = Vector2(51, 93)
+
+[node name="Cannon10" parent="Cannons" unique_id=1236208457 instance=ExtResource("3_068at")]
+position = Vector2(39, 136)
+
+[node name="Cannon11" parent="Cannons" unique_id=1904407159 instance=ExtResource("3_068at")]
+position = Vector2(84, 79)
+
+[node name="Cannon12" parent="Cannons" unique_id=672131832 instance=ExtResource("3_068at")]
+position = Vector2(76, 133)
