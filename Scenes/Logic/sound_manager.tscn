@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bebqthledy48l"]
+
+[ext_resource type="AudioStream" uid="uid://40so0ht3pxxw" path="res://Assets/Sfxs/Digging.mp3" id="1_bk41e"]
+[ext_resource type="AudioStream" uid="uid://k0mqs0fh47r" path="res://Assets/Sfxs/fox-cry.mp3" id="2_42sva"]
+
+[node name="SoundManager" type="Node"]
+
+[node name="FoxSounds" type="Node" parent="."]
+
+[node name="Dig" type="AudioStreamPlayer" parent="FoxSounds"]
+stream = ExtResource("1_bk41e")
+volume_db = -5.0
+pitch_scale = 2.5
+bus = &"Sfxs"
+
+[node name="Cry" type="AudioStreamPlayer" parent="FoxSounds"]
+stream = ExtResource("2_42sva")
+volume_db = -3.0
+bus = &"Sfxs"

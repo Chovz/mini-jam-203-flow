@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cfltu023ojow7"]
+
+[ext_resource type="Script" uid="uid://cab3vt25amya4" path="res://Scripts/Logic/game_manager.gd" id="1_lfkmh"]
+
+[node name="GameManager" type="Node" unique_id=1942380483 node_paths=PackedStringArray("world_2d", "gui")]
+script = ExtResource("1_lfkmh")
+world_2d = NodePath("World2D")
+gui = NodePath("GUI")
+
+[node name="World2D" type="Node2D" parent="." unique_id=1354476230]
+
+[node name="GUI" type="Control" parent="." unique_id=575587996]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InGameSecondsTimer" type="Timer" parent="." unique_id=1904808671]
+
+[node name="ScoreTimer" type="Timer" parent="." unique_id=1219879378]
+
+[connection signal="timeout" from="InGameSecondsTimer" to="." method="_on_in_game_seconds_timer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

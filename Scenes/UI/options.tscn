@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://cq162eixnerpd"]
+
+[ext_resource type="PackedScene" uid="uid://b6cxywfl0scjo" path="res://Scenes/GUI/volume_slider.tscn" id="1_4mv6r"]
+[ext_resource type="Script" uid="uid://bo0xpro5vtjbq" path="res://Scripts/Logic/options.gd" id="1_y1x6x"]
+[ext_resource type="Theme" uid="uid://dotb6sft7w5ha" path="res://Assets/Themes/title_screen_buttons.tres" id="2_pen6c"]
+[ext_resource type="FontFile" uid="uid://c2btd70nrwns4" path="res://Assets/Other/Fonts/PixelOperator8.ttf" id="3_jycwg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mv6r"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_y1x6x"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_4mv6r")
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y1x6x")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_right = 74.0
+offset_bottom = 24.0
+theme = ExtResource("2_pen6c")
+theme_override_fonts/font = ExtResource("3_jycwg")
+text = "< Back"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 99.0
+offset_right = 579.0
+offset_bottom = 355.0
+theme = SubResource("Theme_y1x6x")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="MasterLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.937255, 0.960784, 0.937255, 1)
+text = "Master:"
+
+[node name="Master" parent="PanelContainer/VBoxContainer" instance=ExtResource("1_4mv6r")]
+layout_mode = 2
+busName = "Master"
+
+[node name="MusicLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.937255, 0.960784, 0.937255, 1)
+text = "
+Music:"
+
+[node name="Music" parent="PanelContainer/VBoxContainer" instance=ExtResource("1_4mv6r")]
+layout_mode = 2
+busName = "Music"
+
+[node name="SfxLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.937255, 0.960784, 0.937255, 1)
+text = "
+Sound effects:"
+
+[node name="Sfxs" parent="PanelContainer/VBoxContainer" instance=ExtResource("1_4mv6r")]
+layout_mode = 2
+busName = "Sfxs"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
