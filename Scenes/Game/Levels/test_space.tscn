@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bi4ivceciskg3"]
+
+[ext_resource type="PackedScene" uid="uid://dopbjjntrfh5c" path="res://Scenes/Game/Player/space_ship.tscn" id="1_ofkt3"]
+
+[node name="TestSpace" type="Node2D" unique_id=247367067]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=325290027]
+offset_left = -669.0
+offset_top = -372.0
+offset_right = 676.0
+offset_bottom = 373.0
+color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=179231432]
+
+[node name="CharacterBody2D" parent="." unique_id=2026670046 instance=ExtResource("1_ofkt3")]
+position = Vector2(-282, 0)

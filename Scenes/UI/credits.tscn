@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://chgs0yp6buqcp"]
 
-[ext_resource type="Script" uid="uid://cjcvr1prsfdjw" path="res://Scripts/Logic/credits.gd" id="1_sjkyk"]
-[ext_resource type="Theme" uid="uid://dotb6sft7w5ha" path="res://Assets/Themes/title_screen_buttons.tres" id="2_qwqyw"]
-[ext_resource type="FontFile" uid="uid://c2btd70nrwns4" path="res://Assets/Other/Fonts/PixelOperator8.ttf" id="3_7v3ak"]
+[ext_resource type="Script" uid="uid://cjcvr1prsfdjw" path="res://Scripts/UI/credits.gd" id="1_sjkyk"]
+[ext_resource type="Theme" path="res://Assets/Themes/title_screen_buttons.tres" id="2_qwqyw"]
+[ext_resource type="FontFile" path="res://Assets/Other/Fonts/PixelOperator8.ttf" id="3_7v3ak"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjkyk"]
 bg_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
