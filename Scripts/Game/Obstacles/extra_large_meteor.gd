@@ -28,7 +28,3 @@ func take_damage(damage) -> void:
 		get_tree().current_scene.add_child(small_meteor_2)
 		
 		queue_free()
-
-
-func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()

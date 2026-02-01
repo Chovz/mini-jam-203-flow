@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dopbjjntrfh5c" path="res://Scenes/Game/Player/space_ship.tscn" id="1_ofkt3"]
 [ext_resource type="PackedScene" uid="uid://byswvchemdn4b" path="res://Scenes/Game/Obstacles/meteor_spawner.tscn" id="2_okom5"]
+[ext_resource type="PackedScene" uid="uid://c3ny7xnw4r26" path="res://Scenes/Game/entity_deleter.tscn" id="3_wuhso"]
 
 [node name="TestSpace" type="Node2D" unique_id=247367067]
 
@@ -18,5 +19,14 @@ color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 position = Vector2(-282, 0)
 
 [node name="meteor_spawner" parent="." unique_id=646475727 instance=ExtResource("2_okom5")]
-position = Vector2(626, 2)
-time_between_spawns = 0.2
+position = Vector2(798, 2)
+
+[node name="EntityDeleter" parent="." unique_id=1742771590 instance=ExtResource("3_wuhso")]
+position = Vector2(171, 451)
+
+[node name="EntityDeleter3" parent="." unique_id=1317067876 instance=ExtResource("3_wuhso")]
+position = Vector2(171, -436)
+
+[node name="EntityDeleter2" parent="." unique_id=1084195250 instance=ExtResource("3_wuhso")]
+position = Vector2(-811, 4)
+rotation = 1.5707964
