@@ -32,6 +32,10 @@ window/vsync/vsync_mode=0
 [global_group]
 
 Player=""
+Meteors=""
+Player_Bullets=""
+Enemy_Bullets=""
+Enemies=""
 
 [input]
 

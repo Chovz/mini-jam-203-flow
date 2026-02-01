@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bi4ivceciskg3"]
 
 [ext_resource type="PackedScene" uid="uid://dopbjjntrfh5c" path="res://Scenes/Game/Player/space_ship.tscn" id="1_ofkt3"]
+[ext_resource type="PackedScene" uid="uid://bfwe5xhtdap06" path="res://Scenes/Game/Obstacles/small_meteor.tscn" id="2_okom5"]
 
 [node name="TestSpace" type="Node2D" unique_id=247367067]
 
@@ -15,3 +16,6 @@ color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 
 [node name="CharacterBody2D" parent="." unique_id=2026670046 instance=ExtResource("1_ofkt3")]
 position = Vector2(-282, 0)
+
+[node name="small_meteor" parent="." unique_id=537986293 instance=ExtResource("2_okom5")]
+position = Vector2(196, 5)
