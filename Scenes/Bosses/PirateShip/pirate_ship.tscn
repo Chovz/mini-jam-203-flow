@@ -4,6 +4,85 @@
 [ext_resource type="Texture2D" uid="uid://btstqvi3ly3lr" path="res://Assets/Sprites/Bosses/PirateShip/BossBoat-Sheet.png" id="2_068at"]
 [ext_resource type="PackedScene" uid="uid://75incilhsybi" path="res://Scenes/Bosses/PirateShip/cannon.tscn" id="3_068at"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_068at"]
+atlas = ExtResource("2_068at")
+region = Rect2(256, 0, 256, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkuxe"]
+atlas = ExtResource("2_068at")
+region = Rect2(768, 0, 256, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l5t8"]
+atlas = ExtResource("2_068at")
+region = Rect2(512, 0, 256, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45m1h"]
+atlas = ExtResource("2_068at")
+region = Rect2(256, 0, 256, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_befey"]
+atlas = ExtResource("2_068at")
+region = Rect2(768, 0, 256, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_024ky"]
+atlas = ExtResource("2_068at")
+region = Rect2(256, 0, 256, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx0m0"]
+atlas = ExtResource("2_068at")
+region = Rect2(512, 0, 256, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne3mf"]
+atlas = ExtResource("2_068at")
+region = Rect2(768, 0, 256, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jxnnq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_068at")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkuxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4l5t8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45m1h")
+}],
+"loop": false,
+"name": &"closing",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_befey")
+}],
+"loop": true,
+"name": &"opened",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_024ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx0m0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne3mf")
+}],
+"loop": false,
+"name": &"opening",
+"speed": 7.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l6xci"]
 size = Vector2(175, 346)
 
@@ -16,18 +95,17 @@ collision_layer = 128
 collision_mask = 131
 script = ExtResource("1_wyf30")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=685012834]
-texture_filter = 1
-texture_repeat = 1
-texture = ExtResource("2_068at")
-hframes = 2
-frame = 1
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=802348538]
+sprite_frames = SubResource("SpriteFrames_jxnnq")
+animation = &"opening"
+autoplay = "closed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=463565326]
 position = Vector2(41.5, 7)
 shape = SubResource("RectangleShape2D_l6xci")
 
 [node name="Cannons" type="Node2D" parent="." unique_id=1155142977]
+visible = false
 position = Vector2(7, 2)
 
 [node name="Cannon" parent="Cannons" unique_id=1871036018 instance=ExtResource("3_068at")]
@@ -75,4 +153,5 @@ position = Vector2(67, 63.999996)
 rotation = -4.056145
 shape = SubResource("CapsuleShape2D_068at")
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="HitableArea" to="." method="_on_hitable_area_area_entered"]

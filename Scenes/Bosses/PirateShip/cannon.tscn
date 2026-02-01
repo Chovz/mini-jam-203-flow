@@ -3,32 +3,74 @@
 [ext_resource type="Script" uid="uid://dgt6tpsw1p48u" path="res://Scripts/Bosses/PirateShip/cannon.gd" id="1_2jt1i"]
 [ext_resource type="Texture2D" uid="uid://fa1o62dg4qj5" path="res://Assets/Sprites/Bosses/PirateShip/Cannon-Sheet.png" id="1_2ugq0"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6bu0"]
+atlas = ExtResource("1_2ugq0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4j8q"]
+atlas = ExtResource("1_2ugq0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj8vs"]
+atlas = ExtResource("1_2ugq0")
+region = Rect2(32, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_exgl1"]
 atlas = ExtResource("1_2ugq0")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kp5su"]
-atlas = ExtResource("1_2ugq0")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_376bn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yepmv"]
 atlas = ExtResource("1_2ugq0")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w31ci"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2gn4"]
+atlas = ExtResource("1_2ugq0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubvn8"]
 atlas = ExtResource("1_2ugq0")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_61phr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7d4y"]
 atlas = ExtResource("1_2ugq0")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yepmv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ugq0"]
 atlas = ExtResource("1_2ugq0")
 region = Rect2(160, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kp5su"]
+atlas = ExtResource("1_2ugq0")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_376bn"]
+atlas = ExtResource("1_2ugq0")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w31ci"]
+atlas = ExtResource("1_2ugq0")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61phr"]
+atlas = ExtResource("1_2ugq0")
+region = Rect2(288, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_g2gn4"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6bu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4j8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj8vs")
+}],
+"loop": true,
+"name": &"hide",
+"speed": 6.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_exgl1")
@@ -39,6 +81,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_yepmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2gn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubvn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7d4y")
+}],
+"loop": false,
+"name": &"prepare",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ugq0")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_kp5su")
 }, {
 "duration": 1.0,
@@ -48,16 +110,13 @@ animations = [{
 "texture": SubResource("AtlasTexture_kp5su")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_376bn")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_w31ci")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_61phr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yepmv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w31ci")
 }],
 "loop": true,
 "name": &"shooting",
@@ -65,14 +124,13 @@ animations = [{
 }]
 
 [node name="Cannon" type="Node2D" unique_id=998633108]
-rotation = 0.21432121
 script = ExtResource("1_2jt1i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=205241673]
 texture_filter = 1
 position = Vector2(-7, -2)
 sprite_frames = SubResource("SpriteFrames_g2gn4")
-animation = &"idle"
+animation = &"hide"
 autoplay = "idle"
 
 [node name="ShootingPoint" type="Node2D" parent="." unique_id=1871036018]
@@ -84,5 +142,6 @@ one_shot = true
 [node name="WindUp" type="Timer" parent="." unique_id=1527918084]
 one_shot = true
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="WindUp" to="." method="_on_wind_up_timeout"]
