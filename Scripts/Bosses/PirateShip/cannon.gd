@@ -14,10 +14,11 @@ const WAIT_TIME_MAX = 2
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var preparingShot: bool = false
+var readyToFire = false
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	shoot_timer.start(randomTimeForShot())
+#func _ready() -> void:
+	#shoot_timer.start(randomTimeForShot())
 	
 func _physics_process(delta: float) -> void:
 	if(!preparingShot):
@@ -46,3 +47,11 @@ func shoot() -> void:
 	new_cannon_ball.target_position = (shooting_point.global_position - global_position + Vector2(2, 2)).normalized()
 	get_parent().add_child(new_cannon_ball)
 	get_parent().add_child(explosion)
+
+func prepareFire() -> void:
+	animated_sprite.play("prepare")
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if animated_sprite.animation == "prepare":
+		shoot_timer.start(randomTimeForShot())
+		animated_sprite.play("idle")
