@@ -3,7 +3,6 @@ class_name Meteor extends Area2D
 var speed = 2
 var health = 100
 var direction : Vector2 = Vector2.LEFT
-var can_delete_offscreen : bool = false
 
 func _physics_process(delta):
 	move()
