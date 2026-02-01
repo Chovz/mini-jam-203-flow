@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://byswvchemdn4b"]
+
+[ext_resource type="Script" uid="uid://pf1fvyg5iayc" path="res://Scripts/Game/Obstacles/meteor_spawner.gd" id="1_rxr4o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxr4o"]
+size = Vector2(10, 700)
+
+[node name="meteor_spawner" type="Area2D" unique_id=646475727]
+script = ExtResource("1_rxr4o")
+enabled = true
+time_between_spawns = 0.2
+extra_large_meteor_percentage = 50.0
+
+[node name="spawn_rate_timer" type="Timer" parent="." unique_id=76004506]
+
+[node name="spawn_area" type="CollisionShape2D" parent="." unique_id=1975869283]
+shape = SubResource("RectangleShape2D_rxr4o")
+
+[connection signal="timeout" from="spawn_rate_timer" to="." method="_on_spawn_rate_timer_timeout"]
