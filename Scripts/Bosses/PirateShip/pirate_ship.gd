@@ -15,7 +15,7 @@ enum Attack {
 const UFO = preload("res://Scenes/Bosses/PirateShip/ufo.tscn")
 
 const CHANGE_TIME_MIN = 10
-const CHANGE_TIME_MAX = 15
+const CHANGE_TIME_MAX = 20
 const MINIONS_MIN = 4
 const MINIONS_MAX = 7
 const STARTING_HEALTH = 10000
@@ -31,6 +31,18 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	checkHealth()
+	
+	if currentAttack == Attack.MINIONS:
+		checkForUfos()
+	
+func checkForUfos() -> void:
+	var ufos: Array = get_children()
+	for ufo in ufos:
+		if ufo.is_in_group("Enemies"):
+			return
+			
+	animated_sprite_2d.play("opening")
+	currentAttack = Attack.CANNONS
 
 func take_damage(damage: int) -> void:
 	currentHealth -= damage
@@ -49,18 +61,23 @@ func _on_hitable_area_area_entered(area: Area2D) -> void:
 		area.queue_free()
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	print("Finished playing " + animated_sprite_2d.animation)
 	if animated_sprite_2d.animation == "closing":
+		sendMinions()
 		animated_sprite_2d.play("closed")
 	elif animated_sprite_2d.animation == "opening":
-		sendMinions()
+		prepareCannons()
+		animated_sprite_2d.play("opened")
 		
 func setTimerRandomTime() -> void:
 	change_attacks.start(randf_range(CHANGE_TIME_MIN, CHANGE_TIME_MAX))
 
 func _on_change_attacks_timeout() -> void:
 	if currentAttack == Attack.CANNONS:
-		prepareCannons()
+		var cannonArray: Array = cannons.get_children()
+		for cannon in cannonArray:
+			if cannon.is_in_group("Cannon"):
+				cannon.holdFire()
+		animated_sprite_2d.play("closing")
 
 func prepareCannons() -> void:
 	cannons.visible = true
@@ -68,15 +85,13 @@ func prepareCannons() -> void:
 	for cannon in cannonArray:
 		cannon.prepareFire()
 	animated_sprite_2d.play("opened")
+	setTimerRandomTime()
 
 func sendMinions() -> void:
-	var cannonArray: Array = cannons.get_children()
-	for cannon in cannonArray:
-		cannon.hide()
-	cannons.visible = true
-	animated_sprite_2d.play("closing")
-	
+	cannons.visible = false
 	for i in randi_range(MINIONS_MIN, MINIONS_MAX):
 		var minion = UFO.instantiate()
-		minion.position.x += 200
+		minion.position.x += 500
 		add_child(minion)
+	
+	currentAttack = Attack.MINIONS

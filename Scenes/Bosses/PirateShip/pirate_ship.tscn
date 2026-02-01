@@ -154,6 +154,7 @@ rotation = -4.056145
 shape = SubResource("CapsuleShape2D_068at")
 
 [node name="ChangeAttacks" type="Timer" parent="." unique_id=344186844]
+one_shot = true
 
 [node name="TopLeft" type="Node2D" parent="." unique_id=218832838]
 position = Vector2(-251, -161)

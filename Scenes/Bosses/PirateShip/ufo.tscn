@@ -7,6 +7,22 @@
 atlas = ExtResource("1_lgfy0")
 region = Rect2(0, 0, 48, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpaew"]
+atlas = ExtResource("1_lgfy0")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1244"]
+atlas = ExtResource("1_lgfy0")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bebe1"]
+atlas = ExtResource("1_lgfy0")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg12u"]
+atlas = ExtResource("1_lgfy0")
+region = Rect2(0, 0, 48, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_47wvb"]
 atlas = ExtResource("1_lgfy0")
 region = Rect2(48, 0, 48, 32)
@@ -35,6 +51,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_cpaew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1244")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bebe1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kg12u")
+}],
+"loop": false,
+"name": &"hideGun",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_47wvb")
 }, {
 "duration": 1.0,
@@ -54,17 +87,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_q1244"]
 radius = 12.0
 
-[node name="Ufo" type="CharacterBody2D" unique_id=1202402026]
+[node name="Ufo" type="CharacterBody2D" unique_id=1202402026 groups=["Enemies"]]
 z_index = 2
 script = ExtResource("1_qp72u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=92092665]
 z_index = 2
 sprite_frames = SubResource("SpriteFrames_cpaew")
-animation = &"prepareGun"
+animation = &"hideGun"
 autoplay = "flying"
-frame = 3
-frame_progress = 1.0
 
 [node name="Wait" type="Timer" parent="." unique_id=2024050133]
 wait_time = 0.8
@@ -82,6 +113,9 @@ z_index = 5
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_q1244")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=179149165]
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Wait" to="." method="_on_wait_timeout"]
 [connection signal="timeout" from="LaserDuration" to="." method="_on_laser_duration_timeout"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

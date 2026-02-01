@@ -5,8 +5,8 @@ const CANNON_BALL = preload("res://Scenes/Bosses/PirateShip/cannon_ball.tscn")
 const CANNON_EXPLOSION = preload("res://Scenes/Bosses/PirateShip/explosion.tscn")
 
 
-const WAIT_TIME_MIN = 0.5
-const WAIT_TIME_MAX = 2
+const WAIT_TIME_MIN = 0.1
+const WAIT_TIME_MAX = 1
 
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var wind_up: Timer = $WindUp
@@ -45,8 +45,8 @@ func shoot() -> void:
 	new_cannon_ball.position = position + shooting_point.position
 	explosion.position = new_cannon_ball.position
 	new_cannon_ball.target_position = (shooting_point.global_position - global_position + Vector2(2, 2)).normalized()
-	get_parent().add_child(new_cannon_ball)
-	get_parent().add_child(explosion)
+	get_parent().get_parent().add_child(new_cannon_ball)
+	get_parent().get_parent().add_child(explosion)
 
 func prepareFire() -> void:
 	animated_sprite.play("prepare")
@@ -55,3 +55,9 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite.animation == "prepare":
 		shoot_timer.start(randomTimeForShot())
 		animated_sprite.play("idle")
+		readyToFire = true
+
+func holdFire() -> void:
+	readyToFire = false
+	shoot_timer.stop()
+	wind_up.stop()

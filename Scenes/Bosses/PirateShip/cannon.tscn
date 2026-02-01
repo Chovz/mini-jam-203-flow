@@ -123,7 +123,7 @@ animations = [{
 "speed": 7.0
 }]
 
-[node name="Cannon" type="Node2D" unique_id=998633108]
+[node name="Cannon" type="Node2D" unique_id=998633108 groups=["Cannon"]]
 script = ExtResource("1_2jt1i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=205241673]
