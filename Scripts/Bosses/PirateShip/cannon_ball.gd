@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const BULLET_SPEED_MIN = 100
+const BULLET_SPEED_MIN = 300
 const BULLET_SPEED_MAX = 800
 
 var target_position: Vector2
@@ -10,6 +10,7 @@ func _ready() -> void:
 	speed = randf_range(BULLET_SPEED_MIN, BULLET_SPEED_MAX)
 
 func _physics_process(delta: float) -> void:
+	rotate(0.05)
 	velocity = target_position * speed
 	move_and_slide()
 	

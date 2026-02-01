@@ -25,9 +25,5 @@ func _on_meteor_damage_area_entered(area):
 func _on_bullet_hitbox_area_entered(area):
 	
 	if area.is_in_group("Player_Bullets"):
-		# bullet = area.to_bullet o algo asi
-		# bullet_damage = bullet.damage
-		var bullet_damage = 20
-		damage_meteor(bullet_damage)
+		damage_meteor(area.DAMAGE)
 		area.queue_free()
-	pass # Replace with function body.
