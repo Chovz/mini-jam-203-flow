@@ -19,7 +19,9 @@ func take_damage(damage) -> void:
 
 func _on_meteor_damage_area_entered(area):
 	if area.is_in_group("Player"):
-		pass #hurt player
+		var player : SpaceShip = area.get_parent()
+		player.get_hit()
+		#O directamente mandarlo a la v
 
 func _on_bullet_hitbox_area_entered(area):
 	
