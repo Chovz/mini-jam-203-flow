@@ -17,45 +17,47 @@ texture_filter = 1
 texture_repeat = 1
 texture = ExtResource("2_068at")
 hframes = 2
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=463565326]
 position = Vector2(41.5, 7)
 shape = SubResource("RectangleShape2D_l6xci")
 
 [node name="Cannons" type="Node2D" parent="." unique_id=1155142977]
+position = Vector2(7, 2)
 
 [node name="Cannon" parent="Cannons" unique_id=1871036018 instance=ExtResource("3_068at")]
-position = Vector2(-48, -7)
+position = Vector2(-34, -11)
 
 [node name="Cannon2" parent="Cannons" unique_id=1825991748 instance=ExtResource("3_068at")]
-position = Vector2(-59, 26)
+position = Vector2(-45, 22)
 
 [node name="Cannon3" parent="Cannons" unique_id=1026875840 instance=ExtResource("3_068at")]
-position = Vector2(-18, 21)
+position = Vector2(-4, 18)
 
 [node name="Cannon4" parent="Cannons" unique_id=1287188375 instance=ExtResource("3_068at")]
-position = Vector2(-38, 62)
+position = Vector2(-24, 58)
 
 [node name="Cannon5" parent="Cannons" unique_id=147182221 instance=ExtResource("3_068at")]
-position = Vector2(-4, 64)
+position = Vector2(8, 60)
 
 [node name="Cannon6" parent="Cannons" unique_id=1009618320 instance=ExtResource("3_068at")]
-position = Vector2(29, 54)
+position = Vector2(41, 51)
 
 [node name="Cannon7" parent="Cannons" unique_id=147126005 instance=ExtResource("3_068at")]
-position = Vector2(-18, 99)
+position = Vector2(-6, 96)
 
 [node name="Cannon8" parent="Cannons" unique_id=330513697 instance=ExtResource("3_068at")]
-position = Vector2(18, 102)
+position = Vector2(31, 99)
 
 [node name="Cannon9" parent="Cannons" unique_id=1034975832 instance=ExtResource("3_068at")]
-position = Vector2(51, 93)
+position = Vector2(63, 88)
 
 [node name="Cannon10" parent="Cannons" unique_id=1236208457 instance=ExtResource("3_068at")]
-position = Vector2(39, 136)
+position = Vector2(52, 134)
 
 [node name="Cannon11" parent="Cannons" unique_id=1904407159 instance=ExtResource("3_068at")]
-position = Vector2(84, 79)
+position = Vector2(97, 76)
 
 [node name="Cannon12" parent="Cannons" unique_id=672131832 instance=ExtResource("3_068at")]
-position = Vector2(76, 133)
+position = Vector2(89, 130)

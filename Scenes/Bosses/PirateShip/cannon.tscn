@@ -1,11 +1,88 @@
 [gd_scene format=3 uid="uid://75incilhsybi"]
 
 [ext_resource type="Script" uid="uid://dgt6tpsw1p48u" path="res://Scripts/Bosses/PirateShip/cannon.gd" id="1_2jt1i"]
+[ext_resource type="Texture2D" uid="uid://fa1o62dg4qj5" path="res://Assets/Sprites/Bosses/PirateShip/Cannon-Sheet.png" id="1_2ugq0"]
 
-[node name="Cannon" type="Node2D" unique_id=1871036018]
+[sub_resource type="AtlasTexture" id="AtlasTexture_exgl1"]
+atlas = ExtResource("1_2ugq0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kp5su"]
+atlas = ExtResource("1_2ugq0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_376bn"]
+atlas = ExtResource("1_2ugq0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w31ci"]
+atlas = ExtResource("1_2ugq0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61phr"]
+atlas = ExtResource("1_2ugq0")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yepmv"]
+atlas = ExtResource("1_2ugq0")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2gn4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exgl1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kp5su")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_376bn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kp5su")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w31ci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61phr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yepmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w31ci")
+}],
+"loop": true,
+"name": &"shooting",
+"speed": 7.0
+}]
+
+[node name="Cannon" type="Node2D" unique_id=998633108]
+rotation = 0.21432121
 script = ExtResource("1_2jt1i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=205241673]
+texture_filter = 1
+position = Vector2(-7, -2)
+sprite_frames = SubResource("SpriteFrames_g2gn4")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="ShootingPoint" type="Node2D" parent="." unique_id=1871036018]
+position = Vector2(-16, -1)
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=455569583]
 one_shot = true
 
+[node name="WindUp" type="Timer" parent="." unique_id=1527918084]
+one_shot = true
+
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="WindUp" to="." method="_on_wind_up_timeout"]
