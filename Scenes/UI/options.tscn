@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cq162eixnerpd"]
 
-[ext_resource type="PackedScene" uid="uid://b6cxywfl0scjo" path="res://Scenes/GUI/volume_slider.tscn" id="1_4mv6r"]
-[ext_resource type="Script" uid="uid://bo0xpro5vtjbq" path="res://Scripts/Logic/options.gd" id="1_y1x6x"]
-[ext_resource type="Theme" uid="uid://dotb6sft7w5ha" path="res://Assets/Themes/title_screen_buttons.tres" id="2_pen6c"]
-[ext_resource type="FontFile" uid="uid://c2btd70nrwns4" path="res://Assets/Other/Fonts/PixelOperator8.ttf" id="3_jycwg"]
+[ext_resource type="PackedScene" uid="uid://b6cxywfl0scjo" path="res://Scenes/UI/volume_slider.tscn" id="1_4mv6r"]
+[ext_resource type="Script" uid="uid://bo0xpro5vtjbq" path="res://Scripts/UI/options.gd" id="1_y1x6x"]
+[ext_resource type="Theme" path="res://Assets/Themes/title_screen_buttons.tres" id="2_pen6c"]
+[ext_resource type="FontFile" path="res://Assets/Other/Fonts/PixelOperator8.ttf" id="3_jycwg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mv6r"]
 content_margin_left = 0.0

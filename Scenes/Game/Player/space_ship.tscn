@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dopbjjntrfh5c"]
+
+[ext_resource type="Script" uid="uid://bwyr5oyb06tnq" path="res://Scripts/Game/Player/space_ship.gd" id="1_e1ky1"]
+[ext_resource type="Texture2D" uid="uid://c4gtawtun0ifi" path="res://Assets/Sprites/Spaceship/Ship.png" id="2_p384v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s106j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p384v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b7j0"]
+size = Vector2(16, 5)
+
+[node name="space_ship" type="CharacterBody2D" unique_id=2026670046]
+script = ExtResource("1_e1ky1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1589761801]
+sprite_frames = SubResource("SpriteFrames_s106j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1182065420]
+position = Vector2(-5, 0)
+shape = SubResource("RectangleShape2D_0b7j0")
+
+[node name="Timers" type="Node" parent="." unique_id=167050492]
+
+[node name="ShootingCooldown" type="Timer" parent="Timers" unique_id=972064202]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Timers/ShootingCooldown" to="." method="_on_shooting_cooldown_timeout"]

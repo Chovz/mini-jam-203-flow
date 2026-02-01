@@ -99,9 +99,9 @@ func newGame() -> void:
 	GameMusic.play()
 	restart_values_for_level()
 	change_world_2d_scene(Global.TEST_LEVEL) #Reemplazar con un nivel/escena de verdad
-	change_gui_scene(Global.HUD)
-	start_level()
-	gameConnections()
+	#change_gui_scene(Global.HUD)
+	#start_level()
+	#gameConnections()
 
 func title_screen():
 	change_gui_scene(Global.TITLE_SCREEN)

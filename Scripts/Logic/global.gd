@@ -8,7 +8,7 @@ const WORLD_2D_SCENE_PATH : String = "res://Scenes/Game/Levels/%s.tscn"
 const OPTIONS : String = "Options"
 const TITLE_SCREEN : String = "title_screen"
 const LOSE_SCREEN : String = "lose_screen"
-const TEST_LEVEL : String = "test_level_farmland"
+const TEST_LEVEL : String = "test_space"
 const HUD : String = "hud"
 
 enum Direction 

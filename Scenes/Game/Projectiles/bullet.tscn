@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://r5waf5vu18ap"]
+
+[ext_resource type="Texture2D" uid="uid://c18jc8mmwg8oh" path="res://Assets/Sprites/Bullets/Bullet.png" id="1_164qv"]
+[ext_resource type="Script" uid="uid://c0oju67v7jcad" path="res://Scripts/Game/Projectiles/bullet.gd" id="1_1562s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1562s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_164qv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mf1on"]
+radius = 4.0
+
+[node name="Bullet" type="Area2D" unique_id=1143379059]
+script = ExtResource("1_1562s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1652078106]
+sprite_frames = SubResource("SpriteFrames_1562s")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1394789175]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=381640906]
+shape = SubResource("CircleShape2D_mf1on")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

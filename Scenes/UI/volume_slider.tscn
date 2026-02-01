@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b6cxywfl0scjo"]
 
-[ext_resource type="Script" uid="uid://b4lpclcoufygs" path="res://Scripts/Logic/volume_slider.gd" id="1_1ixus"]
-[ext_resource type="Texture2D" uid="uid://jajgde0qp4xc" path="res://Assets/Other/Circle.png" id="1_28xn4"]
-[ext_resource type="Texture2D" uid="uid://dg1txi46kwqgi" path="res://Assets/Other/Circle2.png" id="2_o4gxf"]
-[ext_resource type="Texture2D" uid="uid://dqk04wh11anuy" path="res://Assets/Other/Circle3.png" id="2_xqop2"]
+[ext_resource type="Script" uid="uid://b4lpclcoufygs" path="res://Scripts/UI/volume_slider.gd" id="1_1ixus"]
+[ext_resource type="Texture2D" path="res://Assets/Other/Circle.png" id="1_28xn4"]
+[ext_resource type="Texture2D" path="res://Assets/Other/Circle2.png" id="2_o4gxf"]
+[ext_resource type="Texture2D" path="res://Assets/Other/Circle3.png" id="2_xqop2"]
 
 [sub_resource type="Image" id="Image_xqop2"]
 data = {
