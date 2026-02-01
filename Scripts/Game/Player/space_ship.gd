@@ -1,10 +1,9 @@
 extends CharacterBody2D
 
-const SPEED = 400.0
+const SPEED = 450.0
 const SPACE_SHIP_WIDTH = 54
 const BULLET_WIDTH = 5
 const BULLET_SPAWN_OFFSET : Vector2 = Vector2(BULLET_WIDTH + SPACE_SHIP_WIDTH/2, 2)
-const BULLET = preload("res://Scenes/Game/Projectiles/bullet.tscn")
 
 @onready var shooting_cooldown: Timer = $Timers/ShootingCooldown
 
@@ -42,7 +41,7 @@ func playerActions() -> void:
 			shooting_cooldown.start()
 			
 func spawnBullet() -> void:
-	var bullet = BULLET.instantiate()
+	var bullet = Global.BULLET.instantiate()
 	bullet.position = position + BULLET_SPAWN_OFFSET
 	#Siempre van a ir para la derecha
 	get_tree().current_scene.add_child(bullet)
