@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c0t38ghy53ajm"]
+
+[ext_resource type="Texture2D" uid="uid://c6jwb1r0txqoe" path="res://Assets/Sprites/Bosses/HealthBar/HealthBar1.png" id="1_opd8c"]
+[ext_resource type="Texture2D" uid="uid://bopgidbqwm5hc" path="res://Assets/Sprites/Bosses/HealthBar/HealthBar2.png" id="2_wkcdr"]
+[ext_resource type="Script" uid="uid://b6se5d3e5b5sc" path="res://Scripts/Bosses/health_bar.gd" id="3_wkcdr"]
+
+[node name="HealthBar" type="TextureProgressBar" unique_id=2112902520]
+texture_filter = 1
+offset_right = 532.0
+offset_bottom = 16.0
+texture_under = ExtResource("1_opd8c")
+texture_progress = ExtResource("2_wkcdr")
+script = ExtResource("3_wkcdr")
