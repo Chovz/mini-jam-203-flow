@@ -91,7 +91,7 @@ radius = 44.076637
 height = 291.4336
 
 [node name="PirateShip" type="StaticBody2D" unique_id=505851544]
-collision_layer = 128
+collision_layer = 129
 collision_mask = 131
 script = ExtResource("1_wyf30")
 
@@ -153,5 +153,14 @@ position = Vector2(67, 63.999996)
 rotation = -4.056145
 shape = SubResource("CapsuleShape2D_068at")
 
+[node name="ChangeAttacks" type="Timer" parent="." unique_id=344186844]
+
+[node name="TopLeft" type="Node2D" parent="." unique_id=218832838]
+position = Vector2(-251, -161)
+
+[node name="BotRight" type="Node2D" parent="." unique_id=2075756254]
+position = Vector2(-98, 176)
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="HitableArea" to="." method="_on_hitable_area_area_entered"]
+[connection signal="timeout" from="ChangeAttacks" to="." method="_on_change_attacks_timeout"]

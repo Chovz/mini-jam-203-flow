@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://7jqqu8phxy5w"]
+
+[ext_resource type="Texture2D" uid="uid://dtx1ppebyrbg2" path="res://Assets/Sprites/Bosses/PirateShip/Ufo-Sheet.png" id="1_lgfy0"]
+[ext_resource type="Script" uid="uid://0m141fbfjikb" path="res://Scripts/Bosses/PirateShip/ufo.gd" id="1_qp72u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp72u"]
+atlas = ExtResource("1_lgfy0")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47wvb"]
+atlas = ExtResource("1_lgfy0")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uljgp"]
+atlas = ExtResource("1_lgfy0")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmbc1"]
+atlas = ExtResource("1_lgfy0")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pt4r"]
+atlas = ExtResource("1_lgfy0")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cpaew"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qp72u")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47wvb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uljgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmbc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pt4r")
+}],
+"loop": false,
+"name": &"prepareGun",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q1244"]
+radius = 12.0
+
+[node name="Ufo" type="CharacterBody2D" unique_id=1202402026]
+z_index = 2
+script = ExtResource("1_qp72u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=92092665]
+z_index = 2
+sprite_frames = SubResource("SpriteFrames_cpaew")
+animation = &"prepareGun"
+autoplay = "flying"
+frame = 3
+frame_progress = 1.0
+
+[node name="Wait" type="Timer" parent="." unique_id=2024050133]
+wait_time = 0.8
+one_shot = true
+
+[node name="LaserDuration" type="Timer" parent="." unique_id=1866993244]
+wait_time = 1.2
+one_shot = true
+
+[node name="SpawnPosition" type="Node2D" parent="." unique_id=248595140]
+position = Vector2(-10, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1004058946]
+z_index = 5
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_q1244")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Wait" to="." method="_on_wait_timeout"]
+[connection signal="timeout" from="LaserDuration" to="." method="_on_laser_duration_timeout"]

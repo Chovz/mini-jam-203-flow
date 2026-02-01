@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cl7i452j4stsn"]
+
+[ext_resource type="Texture2D" uid="uid://cwawfjrnqgg1f" path="res://Assets/Sprites/Bosses/PirateShip/Pointer.png" id="1_vix37"]
+
+[node name="LaserPointer" type="Node2D" unique_id=247765207]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=33007417]
+texture_filter = 1
+position = Vector2(-358, 0)
+scale = Vector2(2, 1)
+texture = ExtResource("1_vix37")
