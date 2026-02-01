@@ -6,6 +6,7 @@ const BULLET_WIDTH = 5
 const BULLET_SPAWN_OFFSET : Vector2 = Vector2(BULLET_WIDTH + SPACE_SHIP_WIDTH/2, 2)
 
 @onready var shooting_cooldown: Timer = $Timers/ShootingCooldown
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var isAttacking: bool = false
 var canSpawnBullet: bool = true
@@ -36,6 +37,7 @@ func playerActions() -> void:
 		
 	if isAttacking:
 		if canSpawnBullet:
+			audio_stream_player_2d.play()
 			spawn_bullet()
 			canSpawnBullet = false
 			shooting_cooldown.start()

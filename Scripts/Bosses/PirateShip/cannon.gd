@@ -12,6 +12,7 @@ const WAIT_TIME_MAX = 1
 @onready var wind_up: Timer = $WindUp
 @onready var shooting_point: Node2D = $ShootingPoint
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var preparingShot: bool = false
 var readyToFire = false
@@ -40,6 +41,7 @@ func _on_wind_up_timeout() -> void:
 	shoot_timer.start(randomTimeForShot())
 
 func shoot() -> void:
+	audio_stream_player_2d.play()
 	var new_cannon_ball = CANNON_BALL.instantiate()
 	var explosion = CANNON_EXPLOSION.instantiate()
 	new_cannon_ball.position = position + shooting_point.position

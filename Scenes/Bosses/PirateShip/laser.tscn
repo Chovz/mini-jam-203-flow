@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c02n07ioceu7j"]
 
 [ext_resource type="Texture2D" uid="uid://dwgpvq17jh5ap" path="res://Assets/Sprites/Bosses/PirateShip/Laser.png" id="1_3k6pu"]
+[ext_resource type="AudioStream" uid="uid://chbxtlbyf3r0s" path="res://Assets/Audio/SFXs/Laser.mp3" id="2_gmmgo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gmmgo"]
 radius = 8.0
@@ -18,3 +19,9 @@ texture = ExtResource("1_3k6pu")
 position = Vector2(-360, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_gmmgo")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2101750956]
+stream = ExtResource("2_gmmgo")
+volume_db = -1.0
+pitch_scale = 0.5
+autoplay = true

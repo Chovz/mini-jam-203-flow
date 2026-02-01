@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cl7i452j4stsn"]
 
 [ext_resource type="Texture2D" uid="uid://cwawfjrnqgg1f" path="res://Assets/Sprites/Bosses/PirateShip/Pointer.png" id="1_vix37"]
+[ext_resource type="AudioStream" uid="uid://difi8ahbwak2m" path="res://Assets/Audio/SFXs/Laser_Pointer_Sfx.mp3" id="2_atkgj"]
 
 [node name="LaserPointer" type="Node2D" unique_id=247765207]
 
@@ -9,3 +10,7 @@ texture_filter = 1
 position = Vector2(-358, 0)
 scale = Vector2(2, 1)
 texture = ExtResource("1_vix37")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1331847663]
+stream = ExtResource("2_atkgj")
+autoplay = true

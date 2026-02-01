@@ -16,7 +16,7 @@ const UFO = preload("res://Scenes/Bosses/PirateShip/ufo.tscn")
 
 const CHANGE_TIME_MIN = 10
 const CHANGE_TIME_MAX = 20
-const MINIONS_MIN = 4
+const MINIONS_MIN = 5
 const MINIONS_MAX = 7
 const STARTING_HEALTH = 10000
 
@@ -45,6 +45,9 @@ func checkForUfos() -> void:
 	currentAttack = Attack.CANNONS
 
 func take_damage(damage: int) -> void:
+	if currentAttack == Attack.MINIONS:
+		return
+	
 	currentHealth -= damage
 	healthChanged.emit()
 

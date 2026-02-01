@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bwyr5oyb06tnq" path="res://Scripts/Game/Player/space_ship.gd" id="1_e1ky1"]
 [ext_resource type="Texture2D" uid="uid://c4gtawtun0ifi" path="res://Assets/Sprites/Spaceship/Ship.png" id="2_p384v"]
+[ext_resource type="AudioStream" uid="uid://ts7raljjiy3n" path="res://Assets/Audio/SFXs/space_ship_laser.mp3" id="3_1srbm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s106j"]
 animations = [{
@@ -35,5 +36,8 @@ shape = SubResource("CapsuleShape2D_5ario")
 [node name="ShootingCooldown" type="Timer" parent="Timers" unique_id=972064202]
 wait_time = 0.1
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1084174103]
+stream = ExtResource("3_1srbm")
 
 [connection signal="timeout" from="Timers/ShootingCooldown" to="." method="_on_shooting_cooldown_timeout"]
