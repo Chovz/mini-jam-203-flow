@@ -17,6 +17,7 @@ var can_enemies_move : bool = false
 var in_game_seconds_passed : int = 0
 var score : float = 0
 var timePassed : int = 0
+#var spawn_enemies_enabled : bool = true
 
 func _ready():
 	Global.game_manager = self

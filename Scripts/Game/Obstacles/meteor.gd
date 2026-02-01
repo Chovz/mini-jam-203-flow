@@ -1,4 +1,4 @@
-class_name meteor extends Area2D
+class_name Meteor extends Area2D
 
 var speed = 2
 var health = 100

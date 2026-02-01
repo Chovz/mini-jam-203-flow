@@ -1,4 +1,4 @@
-extends meteor
+extends Meteor
 
 const METEOR_SPAWN_OFFSET = 10
 const LOWER_ANGLE_LIMIT = -0.5
@@ -14,7 +14,6 @@ func take_damage(damage) -> void:
 	health = health - damage
 	
 	if health <= 0:
-		print("Spawn?")
 		var small_meteor_1 = Global.SMALL_METEOR.instantiate()
 		var small_meteor_2 = Global.SMALL_METEOR.instantiate()
 		
@@ -29,3 +28,7 @@ func take_damage(damage) -> void:
 		get_tree().current_scene.add_child(small_meteor_2)
 		
 		queue_free()
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	queue_free()

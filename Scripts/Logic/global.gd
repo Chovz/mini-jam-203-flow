@@ -13,6 +13,7 @@ const HUD : String = "hud"
 
 const BULLET = preload("res://Scenes/Game/Projectiles/bullet.tscn")
 const SMALL_METEOR = preload("res://Scenes/Game/Obstacles/small_meteor.tscn")
+const EXTRA_LARGE_METEOR = preload("res://Scenes/Game/Obstacles/extra_large_meteor.tscn")
 
 enum Direction 
 {
