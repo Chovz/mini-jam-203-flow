@@ -14,8 +14,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b7j0"]
-size = Vector2(16, 5)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ario"]
+radius = 3.9999998
+height = 20.0
 
 [node name="space_ship" type="CharacterBody2D" unique_id=2026670046 groups=["Player"]]
 collision_mask = 208
@@ -25,8 +26,9 @@ script = ExtResource("1_e1ky1")
 sprite_frames = SubResource("SpriteFrames_s106j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1182065420 groups=["Player"]]
-position = Vector2(-5, 0)
-shape = SubResource("RectangleShape2D_0b7j0")
+position = Vector2(-8, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_5ario")
 
 [node name="Timers" type="Node" parent="." unique_id=167050492]
 

@@ -11,6 +11,9 @@ const LOSE_SCREEN : String = "lose_screen"
 const TEST_LEVEL : String = "test_space"
 const HUD : String = "hud"
 
+const BULLET = preload("res://Scenes/Game/Projectiles/bullet.tscn")
+const SMALL_METEOR = preload("res://Scenes/Game/Obstacles/small_meteor.tscn")
+
 enum Direction 
 {
 	NONE = 0,

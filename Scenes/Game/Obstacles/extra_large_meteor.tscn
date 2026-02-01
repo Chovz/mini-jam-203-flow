@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://nx7fdeittyb2"]
+
+[ext_resource type="Script" uid="uid://cd3rvg6wkvw15" path="res://Scripts/Game/Obstacles/extra_large_meteor.gd" id="1_07xss"]
+[ext_resource type="Texture2D" uid="uid://caxsxqaw3ciwj" path="res://Assets/Sprites/Meteors/MeteorExtraLarge1.png" id="2_oc5wl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2owpl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oc5wl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_07xss"]
+radius = 21.0
+height = 56.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oc5wl"]
+radius = 26.0
+height = 72.0
+
+[node name="extra_large_meteor" type="Area2D" unique_id=537986293 groups=["Meteors"]]
+collision_layer = 16
+script = ExtResource("1_07xss")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=192172183]
+sprite_frames = SubResource("SpriteFrames_2owpl")
+
+[node name="MeteorShipCollisionShape" type="CollisionShape2D" parent="." unique_id=1490556612]
+position = Vector2(-2, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_07xss")
+debug_color = Color(0.99999994, 0.008617571, 0.06897733, 0.41960785)
+
+[node name="BulletHitbox" type="Area2D" parent="." unique_id=164712092]
+collision_layer = 32
+collision_mask = 2
+
+[node name="MeteorBulletCollisionShape" type="CollisionShape2D" parent="BulletHitbox" unique_id=1555004645]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_oc5wl")
+
+[connection signal="area_entered" from="." to="." method="_on_meteor_damage_area_entered"]
+[connection signal="area_entered" from="BulletHitbox" to="." method="_on_bullet_hitbox_area_entered"]

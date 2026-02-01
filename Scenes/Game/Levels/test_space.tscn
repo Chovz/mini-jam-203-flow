@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dopbjjntrfh5c" path="res://Scenes/Game/Player/space_ship.tscn" id="1_ofkt3"]
 [ext_resource type="PackedScene" uid="uid://bfwe5xhtdap06" path="res://Scenes/Game/Obstacles/small_meteor.tscn" id="2_okom5"]
+[ext_resource type="PackedScene" uid="uid://nx7fdeittyb2" path="res://Scenes/Game/Obstacles/extra_large_meteor.tscn" id="3_wuhso"]
 
 [node name="TestSpace" type="Node2D" unique_id=247367067]
 
@@ -19,3 +20,6 @@ position = Vector2(-282, 0)
 
 [node name="small_meteor" parent="." unique_id=537986293 instance=ExtResource("2_okom5")]
 position = Vector2(196, 5)
+
+[node name="extra_large_meteor" parent="." unique_id=1027788667 instance=ExtResource("3_wuhso")]
+position = Vector2(498, -78)
