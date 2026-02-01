@@ -43,7 +43,7 @@ func playerActions() -> void:
 			
 func spawnBullet() -> void:
 	var bullet = BULLET.instantiate()
-	bullet.global_position = global_position + BULLET_SPAWN_OFFSET
+	bullet.position = position + BULLET_SPAWN_OFFSET
 	#Siempre van a ir para la derecha
 	get_tree().current_scene.add_child(bullet)
 
