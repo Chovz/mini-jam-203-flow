@@ -9,6 +9,7 @@ const OPTIONS : String = "Options"
 const TITLE_SCREEN : String = "title_screen"
 const LOSE_SCREEN : String = "lose_screen"
 const TEST_LEVEL : String = "test_space"
+const LEVEL_1 : String = "level_1"
 const HUD : String = "hud"
 
 const BULLET = preload("res://Scenes/Game/Projectiles/bullet.tscn")

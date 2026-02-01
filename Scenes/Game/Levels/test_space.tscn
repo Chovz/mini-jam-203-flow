@@ -18,5 +18,4 @@ color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 position = Vector2(-282, 0)
 
 [node name="meteor_spawner" parent="." unique_id=646475727 instance=ExtResource("2_okom5")]
-position = Vector2(626, 2)
-time_between_spawns = 0.2
+position = Vector2(843, 11)

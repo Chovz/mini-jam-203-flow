@@ -99,7 +99,7 @@ func newGame() -> void:
 	#current_gui_scene.queue_free()
 	GameMusic.play()
 	restart_values_for_level()
-	change_world_2d_scene(Global.TEST_LEVEL) #Reemplazar con un nivel/escena de verdad
+	change_world_2d_scene(Global.LEVEL_1)
 	#change_gui_scene(Global.HUD)
 	#start_level()
 	#gameConnections()

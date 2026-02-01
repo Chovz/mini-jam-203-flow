@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name SpaceShip extends CharacterBody2D
 
 const SPEED = 450.0
 const SPACE_SHIP_WIDTH = 54
@@ -36,16 +36,20 @@ func playerActions() -> void:
 		
 	if isAttacking:
 		if canSpawnBullet:
-			spawnBullet()
+			spawn_bullet()
 			canSpawnBullet = false
 			shooting_cooldown.start()
 			
-func spawnBullet() -> void:
+func spawn_bullet() -> void:
 	var bullet = Global.BULLET.instantiate()
 	bullet.position = position + BULLET_SPAWN_OFFSET
 	#Siempre van a ir para la derecha
 	get_tree().current_scene.add_child(bullet)
 
+func get_hit() -> void:
+	#explode
+	#reiniciar desde checkpoint
+	pass
 
 func _on_shooting_cooldown_timeout():
 	canSpawnBullet = true
