@@ -8,8 +8,8 @@
 size = Vector2(175, 346)
 
 [node name="PirateShip" type="StaticBody2D" unique_id=505851544]
-collision_layer = 128
-collision_mask = 128
+collision_layer = 129
+collision_mask = 129
 script = ExtResource("1_wyf30")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=685012834]

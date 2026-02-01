@@ -1,28 +1,24 @@
 [gd_scene format=3 uid="uid://c66hoyvlg1sqd"]
 
-[ext_resource type="Script" uid="uid://3feg3aowdbgm" path="res://Scenes/Bosses/PirateShip/player.gd" id="1_kw72p"]
-[ext_resource type="Texture2D" uid="uid://bp38d61uvudu5" path="res://icon.svg" id="1_lv4kk"]
 [ext_resource type="PackedScene" uid="uid://datenys4hvh04" path="res://Scenes/Bosses/PirateShip/pirate_ship.tscn" id="2_kw72p"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_lv4kk"]
-radius = 26.019224
+[ext_resource type="PackedScene" uid="uid://dopbjjntrfh5c" path="res://Scenes/Game/Player/space_ship.tscn" id="2_lv4kk"]
+[ext_resource type="PackedScene" uid="uid://c0t38ghy53ajm" path="res://Scenes/Bosses/health_bar.tscn" id="3_kw72p"]
 
 [node name="Test" type="Node2D" unique_id=519426123]
 scale = Vector2(2, 2)
-
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1957909788 groups=["Player"]]
-position = Vector2(137, 168)
-script = ExtResource("1_kw72p")
-
-[node name="Player" type="Sprite2D" parent="Player" unique_id=1796924905]
-scale = Vector2(0.40292975, 0.4137477)
-texture = ExtResource("1_lv4kk")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1549467104]
-shape = SubResource("CircleShape2D_lv4kk")
 
 [node name="PirateShip" parent="." unique_id=505851544 instance=ExtResource("2_kw72p")]
 position = Vector2(509.5, 180.5)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=384975486]
 position = Vector2(319.5, 181)
+
+[node name="space_ship" parent="." unique_id=2026670046 instance=ExtResource("2_lv4kk")]
+position = Vector2(115.5, 205)
+
+[node name="HealthBar" parent="." unique_id=2112902520 node_paths=PackedStringArray("boss") instance=ExtResource("3_kw72p")]
+offset_left = 56.5
+offset_top = 8.0
+offset_right = 588.5
+offset_bottom = 24.0
+boss = NodePath("../PirateShip")
