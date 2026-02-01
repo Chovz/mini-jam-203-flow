@@ -7,9 +7,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l6xci"]
 size = Vector2(175, 346)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_068at"]
+radius = 44.076637
+height = 291.4336
+
 [node name="PirateShip" type="StaticBody2D" unique_id=505851544]
-collision_layer = 129
-collision_mask = 129
+collision_layer = 128
+collision_mask = 131
 script = ExtResource("1_wyf30")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=685012834]
@@ -61,3 +65,14 @@ position = Vector2(97, 76)
 
 [node name="Cannon12" parent="Cannons" unique_id=672131832 instance=ExtResource("3_068at")]
 position = Vector2(89, 130)
+
+[node name="HitableArea" type="Area2D" parent="." unique_id=169537476]
+collision_layer = 128
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitableArea" unique_id=1846335748]
+position = Vector2(67, 63.999996)
+rotation = -4.056145
+shape = SubResource("CapsuleShape2D_068at")
+
+[connection signal="area_entered" from="HitableArea" to="." method="_on_hitable_area_area_entered"]
