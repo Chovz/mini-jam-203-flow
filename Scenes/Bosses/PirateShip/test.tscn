@@ -1,13 +1,28 @@
 [gd_scene format=3 uid="uid://c66hoyvlg1sqd"]
 
+[ext_resource type="Script" uid="uid://3feg3aowdbgm" path="res://Scenes/Bosses/PirateShip/player.gd" id="1_kw72p"]
 [ext_resource type="Texture2D" uid="uid://bp38d61uvudu5" path="res://icon.svg" id="1_lv4kk"]
 [ext_resource type="PackedScene" uid="uid://datenys4hvh04" path="res://Scenes/Bosses/PirateShip/pirate_ship.tscn" id="2_kw72p"]
 
-[node name="Test" type="Node2D" unique_id=519426123]
+[sub_resource type="CircleShape2D" id="CircleShape2D_lv4kk"]
+radius = 26.019224
 
-[node name="Player" type="Sprite2D" parent="." unique_id=1796924905 groups=["Player"]]
-position = Vector2(368, 385)
+[node name="Test" type="Node2D" unique_id=519426123]
+scale = Vector2(2, 2)
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1957909788 groups=["Player"]]
+position = Vector2(137, 168)
+script = ExtResource("1_kw72p")
+
+[node name="Player" type="Sprite2D" parent="Player" unique_id=1796924905]
+scale = Vector2(0.40292975, 0.4137477)
 texture = ExtResource("1_lv4kk")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1549467104]
+shape = SubResource("CircleShape2D_lv4kk")
+
 [node name="PirateShip" parent="." unique_id=505851544 instance=ExtResource("2_kw72p")]
-position = Vector2(1023, 463)
+position = Vector2(509.5, 180.5)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=384975486]
+position = Vector2(319.5, 181)

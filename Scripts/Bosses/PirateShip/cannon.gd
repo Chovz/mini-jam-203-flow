@@ -11,29 +11,33 @@ const WAIT_TIME_MAX = 5
 @onready var shooting_point: Node2D = $ShootingPoint
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+var preparingShot: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	shoot_timer.start(randomTimeForShot())
 	
-#func _process(delta: float) -> void:
-	#look_at(player.global_position)
-	#rotation_degrees += 180
+func _process(delta: float) -> void:
+	if(!preparingShot):
+		look_at(player.global_position)
+		rotation_degrees += 180
 	
 func randomTimeForShot() -> float:
 	return randf_range(WAIT_TIME_MIN, WAIT_TIME_MAX)
 
-func shoot() -> void:
-	var new_cannon_ball = CANNON_BALL.instantiate()
-	#new_cannon_ball.position = position
-	new_cannon_ball.target_position = (player.global_position - shooting_point.global_position).normalized()
-	add_child(new_cannon_ball)
-
-
 func _on_shoot_timer_timeout() -> void:
+	preparingShot = true
 	animated_sprite.play("shooting")
 	wind_up.start()
 
 func _on_wind_up_timeout() -> void:
-	animated_sprite.play("idle")
 	shoot()
+	animated_sprite.play("idle")
+	preparingShot = false
 	shoot_timer.start(randomTimeForShot())
+
+func shoot() -> void:
+	var new_cannon_ball = CANNON_BALL.instantiate()
+	new_cannon_ball.position = position + shooting_point.position
+	new_cannon_ball.target_position = (shooting_point.global_position - global_position).normalized()
+	get_parent().add_child(new_cannon_ball)
