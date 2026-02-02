@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://4cwloeh4cfcf"]
+
+[ext_resource type="PackedScene" uid="uid://datenys4hvh04" path="res://Scenes/Bosses/PirateShip/pirate_ship.tscn" id="1_70j5k"]
+[ext_resource type="Texture2D" uid="uid://dyoxmn2axttox" path="res://Assets/Sprites/Background/background.png" id="1_mww0f"]
+[ext_resource type="PackedScene" uid="uid://dopbjjntrfh5c" path="res://Scenes/Game/Player/space_ship.tscn" id="2_3eqyv"]
+[ext_resource type="PackedScene" path="res://Scenes/Bosses/health_bar.tscn" id="3_hqyda"]
+
+[node name="boss" type="Node2D" unique_id=519426123]
+scale = Vector2(2, 2)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1729132436]
+offset_left = -669.0
+offset_top = -372.0
+offset_right = 676.0
+offset_bottom = 373.0
+color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
+[node name="BackgroundImage" type="TextureRect" parent="." unique_id=1481152077]
+offset_left = -1.5
+offset_top = 2.5
+offset_right = 638.5
+offset_bottom = 362.5
+texture = ExtResource("1_mww0f")
+
+[node name="PirateShip" parent="." unique_id=505851544 instance=ExtResource("1_70j5k")]
+position = Vector2(509.5, 180.5)
+
+[node name="space_ship" parent="." unique_id=2026670046 instance=ExtResource("2_3eqyv")]
+position = Vector2(115.5, 205)
+collision_layer = 129
+collision_mask = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=384975486]
+position = Vector2(319.5, 181)
+
+[node name="HealthBar" parent="." unique_id=2112902520 node_paths=PackedStringArray("boss") instance=ExtResource("3_hqyda")]
+offset_left = 56.5
+offset_top = 8.0
+offset_right = 588.5
+offset_bottom = 24.0
+boss = NodePath("../PirateShip")

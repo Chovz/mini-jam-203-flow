@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://datenys4hvh04" path="res://Scenes/Bosses/PirateShip/pirate_ship.tscn" id="2_kw72p"]
 [ext_resource type="PackedScene" uid="uid://dopbjjntrfh5c" path="res://Scenes/Game/Player/space_ship.tscn" id="2_lv4kk"]
-[ext_resource type="PackedScene" uid="uid://c0t38ghy53ajm" path="res://Scenes/Bosses/health_bar.tscn" id="3_kw72p"]
+[ext_resource type="PackedScene" path="res://Scenes/Bosses/health_bar.tscn" id="3_kw72p"]
 
 [node name="Test" type="Node2D" unique_id=519426123]
 scale = Vector2(2, 2)

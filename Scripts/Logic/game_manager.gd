@@ -20,6 +20,7 @@ var timePassed : int = 0
 var spawn_enemies_enabled : bool = true
 
 var player_lives = 3
+var player_reference : SpaceShip = null
 
 func _ready():
 	Global.game_manager = self
@@ -48,6 +49,7 @@ func change_world_2d_scene(new_scene_name: String, delete: bool = true, keep_run
 	var new_scene = load(Global.WORLD_2D_SCENE_PATH % new_scene_name).instantiate()
 	world_2d.add_child(new_scene)
 	current_world_2d_scene = new_scene
+	player_reference = current_world_2d_scene.find_child("space_ship")
 	
 func change_gui_scene(new_scene_name: String, delete: bool = true, keep_running: bool = false) -> void:
 	if current_gui_scene != null:
@@ -101,6 +103,10 @@ func game_over():
 func _on_in_game_seconds_timer_timeout():
 	if in_game and not lose_state:
 		in_game_seconds_passed += 1
+		
+	if in_game_seconds_passed >= 60:
+		set_boss_battle()
+		pass
 
 func newGame() -> void:
 	TitleScreenMusic.stop()
@@ -132,7 +138,6 @@ func gameConnections():
 	score_timer.start()
 	
 
-
 func updateGameScore():
 	#score += ceil(POINTS_PER_FARM * farmland_on_current_scene)
 	
@@ -146,3 +151,7 @@ func _on_score_timer_timeout() -> void:
 	updateGameScore()
 	timePassed += 1
 	#updateEnemySpawnRates()
+	
+func set_boss_battle() -> void:
+	change_world_2d_scene(Global.BOSS)
+	

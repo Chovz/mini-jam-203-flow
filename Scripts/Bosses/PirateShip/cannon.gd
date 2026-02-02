@@ -23,7 +23,8 @@ var readyToFire = false
 	
 func _physics_process(delta: float) -> void:
 	if(!preparingShot):
-		look_at(player.global_position)
+		look_at(Global.game_manager.player_reference.global_position)
+		#look_at(player.global_position)
 		rotation_degrees += 180
 	
 func randomTimeForShot() -> float:
