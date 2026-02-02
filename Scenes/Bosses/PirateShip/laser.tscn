@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c02n07ioceu7j"]
 
 [ext_resource type="Texture2D" uid="uid://dwgpvq17jh5ap" path="res://Assets/Sprites/Bosses/PirateShip/Laser.png" id="1_3k6pu"]
+[ext_resource type="Script" uid="uid://m2l7ekpbe053" path="res://Scripts/Bosses/PirateShip/laser.gd" id="1_nq0uw"]
 [ext_resource type="AudioStream" uid="uid://chbxtlbyf3r0s" path="res://Assets/Audio/SFXs/Laser.mp3" id="2_gmmgo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gmmgo"]
@@ -9,6 +10,7 @@ height = 720.0
 
 [node name="Laser" type="Area2D" unique_id=812339158]
 collision_layer = 64
+script = ExtResource("1_nq0uw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2136317295]
 texture_filter = 1
@@ -26,3 +28,5 @@ stream = ExtResource("2_gmmgo")
 volume_db = -1.0
 pitch_scale = 0.5
 autoplay = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

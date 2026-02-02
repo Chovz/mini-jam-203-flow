@@ -5,6 +5,7 @@ class_name Boss
 signal healthChanged
 
 enum Attack {
+	NONE,
 	CANNONS,
 	MINIONS
 }
@@ -22,6 +23,7 @@ const STARTING_HEALTH = 10000
 
 var currentHealth = STARTING_HEALTH
 var currentAttack = Attack.CANNONS
+var dead = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,10 +32,19 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	checkHealth()
+	if !dead:
+		checkIfDead()
+	else:
+		dyingAnimation()
 	
 	if currentAttack == Attack.MINIONS:
 		checkForUfos()
+	
+func dyingAnimation() -> void:
+	if rotation < 20:
+		rotation_degrees += 1
+	
+	position.y -= 0.3
 	
 func checkForUfos() -> void:
 	var ufos: Array = get_children()
@@ -51,10 +62,12 @@ func take_damage(damage: int) -> void:
 	currentHealth -= damage
 	healthChanged.emit()
 
-func checkHealth() -> void:
+func checkIfDead() -> void:
 	if(currentHealth <= 0):
+		currentAttack = Attack.NONE
+		hideCannons()
 		print("YOU SUNK MY BATTLESHIP!")
-		queue_free()
+		dead = true
 
 func _on_hitable_area_area_entered(area: Area2D) -> void:
 	print("Area entered" )
@@ -65,7 +78,8 @@ func _on_hitable_area_area_entered(area: Area2D) -> void:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == "closing":
-		sendMinions()
+		if currentAttack == Attack.CANNONS:
+			sendMinions()
 		animated_sprite_2d.play("closed")
 	elif animated_sprite_2d.animation == "opening":
 		prepareCannons()
@@ -76,11 +90,7 @@ func setTimerRandomTime() -> void:
 
 func _on_change_attacks_timeout() -> void:
 	if currentAttack == Attack.CANNONS:
-		var cannonArray: Array = cannons.get_children()
-		for cannon in cannonArray:
-			if cannon.is_in_group("Cannon"):
-				cannon.holdFire()
-		animated_sprite_2d.play("closing")
+		hideCannons()
 
 func prepareCannons() -> void:
 	cannons.visible = true
@@ -89,6 +99,13 @@ func prepareCannons() -> void:
 		cannon.prepareFire()
 	animated_sprite_2d.play("opened")
 	setTimerRandomTime()
+	
+func hideCannons() -> void:
+	var cannonArray: Array = cannons.get_children()
+	for cannon in cannonArray:
+		if cannon.is_in_group("Cannon"):
+			cannon.holdFire()
+	animated_sprite_2d.play("closing")
 
 func sendMinions() -> void:
 	cannons.visible = false
@@ -98,3 +115,7 @@ func sendMinions() -> void:
 		add_child(minion)
 	
 	currentAttack = Attack.MINIONS
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	Global.game_manager.win()
+	queue_free()

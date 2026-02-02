@@ -99,12 +99,23 @@ func game_over():
 	GameMusic.stop()
 	change_gui_scene(Global.LOSE_SCREEN)
 	current_world_2d_scene.queue_free()
+	
+func win():
+	lose_state = true
+	in_game = false
+	spawn_enemies_enabled = false
+	can_enemies_move = false
+	in_game_seconds_timer.stop()
+	score_timer.stop()
+	GameMusic.stop()
+	change_gui_scene(Global.WIN_SCREEN)
+	current_world_2d_scene.queue_free()
 
 func _on_in_game_seconds_timer_timeout():
 	if in_game and not lose_state:
 		in_game_seconds_passed += 1
 		
-	if in_game_seconds_passed >= 60:
+	if in_game_seconds_passed >= 5:
 		set_boss_battle()
 		pass
 

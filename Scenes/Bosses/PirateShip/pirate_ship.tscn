@@ -91,6 +91,7 @@ radius = 44.076637
 height = 291.4336
 
 [node name="PirateShip" type="StaticBody2D" unique_id=505851544]
+position = Vector2(2, 171)
 script = ExtResource("1_wyf30")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=802348538]
@@ -160,6 +161,9 @@ position = Vector2(-251, -161)
 [node name="BotRight" type="Node2D" parent="." unique_id=2075756254]
 position = Vector2(-98, 176)
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2089760733]
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="HitableArea" to="." method="_on_hitable_area_area_entered"]
 [connection signal="timeout" from="ChangeAttacks" to="." method="_on_change_attacks_timeout"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

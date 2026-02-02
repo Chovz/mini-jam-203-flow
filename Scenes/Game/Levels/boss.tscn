@@ -1,9 +1,10 @@
-[gd_scene format=3 uid="uid://4cwloeh4cfcf"]
+[gd_scene format=3 uid="uid://b4oj0tf2dr51o"]
 
 [ext_resource type="PackedScene" uid="uid://datenys4hvh04" path="res://Scenes/Bosses/PirateShip/pirate_ship.tscn" id="1_70j5k"]
 [ext_resource type="Texture2D" uid="uid://dyoxmn2axttox" path="res://Assets/Sprites/Background/background.png" id="1_mww0f"]
 [ext_resource type="PackedScene" uid="uid://dopbjjntrfh5c" path="res://Scenes/Game/Player/space_ship.tscn" id="2_3eqyv"]
-[ext_resource type="PackedScene" path="res://Scenes/Bosses/health_bar.tscn" id="3_hqyda"]
+[ext_resource type="PackedScene" uid="uid://c0t38ghy53ajm" path="res://Scenes/Bosses/health_bar.tscn" id="3_hqyda"]
+[ext_resource type="AudioStream" uid="uid://4ul7yb28jyuq" path="res://Assets/Audio/Music/hades-by-ende-dot-app.mp3" id="5_g0dql"]
 
 [node name="boss" type="Node2D" unique_id=519426123]
 scale = Vector2(2, 2)
@@ -39,3 +40,7 @@ offset_top = 8.0
 offset_right = 588.5
 offset_bottom = 24.0
 boss = NodePath("../PirateShip")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1806864185]
+stream = ExtResource("5_g0dql")
+autoplay = true
