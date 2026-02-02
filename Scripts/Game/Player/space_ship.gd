@@ -28,6 +28,22 @@ func playerMovement(direction: Vector2) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 		
 	move_and_slide()
+	
+	#get the viewport size and divide by 2 since this is where the camera is positioned
+	var view = get_viewport_rect().size / 2
+
+	#get the camera position
+	var camera_pos = $"../Camera2D".global_position
+
+	var bounds_bw = camera_pos.x - view.x #the camera bounds at the back
+	var bounds_fw = camera_pos.x + view.x #the camera bounds at the front
+	
+	var bounds_up = camera_pos.y - view.y #the camera bounds up
+	var bounds_down = camera_pos.y + view.y #the camera bounds down
+
+	#after the character is moved clamp its position to the end of the camera bounds
+	global_position.x = clamp(global_position.x, bounds_bw, bounds_fw)
+	global_position.y = clamp(global_position.y, bounds_up, bounds_down)
 
 func playerActions() -> void:
 	if Input.is_action_pressed("Attack"):
@@ -44,7 +60,11 @@ func playerActions() -> void:
 			
 func spawn_bullet() -> void:
 	var bullet = Global.BULLET.instantiate()
-	bullet.position = position + BULLET_SPAWN_OFFSET
+	var position_check = position
+	var global_position_check = global_position
+	var bullet_position = bullet.position
+	bullet.position = global_position + BULLET_SPAWN_OFFSET
+	var final_position = bullet.position
 	#Siempre van a ir para la derecha
 	get_tree().current_scene.add_child(bullet)
 
