@@ -115,7 +115,7 @@ func _on_in_game_seconds_timer_timeout():
 	if in_game and not lose_state:
 		in_game_seconds_passed += 1
 		
-	if in_game_seconds_passed >= 5:
+	if in_game_seconds_passed >= 60:
 		set_boss_battle()
 		pass
 
