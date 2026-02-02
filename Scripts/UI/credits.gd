@@ -9,22 +9,18 @@ var authors = [
 ]
 
 var assets = [
-	"White Scape - Nulltale - https://nulltale.itch.io/white-scape"
+	
 ]
 
 var music = [
-	"Twisting by Kevin MacLeod -- incompetech.com --",
-	"Licensed under Creative Commons: By Attribution 4.0 License",
-	"Mesmerizing Galaxy by Kevin MacLeod -- incompetech.com --",
-	"Licensed under Creative Commons: By Attribution 4.0 License"
+	"Hades by ende -- dot app",
+	"Mystery of Dandela by ende -- dot app"
 ]
 
 var sfxs = [
-	"Digging.m4a by TheScarlettWitch89 -- freesound.org -- License: Attribution 3.0",
-	"ANIMAL_PUG_DOG_BARK_YELP_GROAN_BREATH_NICKER_MONSTER_H4N_NTG3_20120528.wav",
-	"by samueljustice00 -- freesound.org -- License: Creative Commons 0",
-	"swoosh-1.mp3 by lesaucisson -- freesound.org -- License: Creative Commons 0",
-	"Thump by bareform -- freesound.org -- License: Attribution 4.0"
+	"Birch-Cannon-Stereo.flac by Seidhepriest -- freesound.org-- License: Attribution NonCommercial 4.0",
+	"Retro, Laser Shots.wav by LilMati -- freesound.org -- License: Creative Commons 0",
+	"Squeaking target hit by AceOfSpadesProduc100 -- freesound.org -- License: Attribution 4.0",
 ]
 
 func _ready() -> void:
@@ -33,10 +29,10 @@ func _ready() -> void:
 		createLabel(author)
 	createLabel("", 50)	
 	
-	createLabel("Assets used:", 30)
-	for asset in assets:
-		createLabel(asset)
-	createLabel("", 50)	
+	#createLabel("Assets used:", 30)
+	#for asset in assets:
+	#	createLabel(asset)
+	#createLabel("", 50)	
 	
 	createLabel("Music:", 30)
 	for m in music:

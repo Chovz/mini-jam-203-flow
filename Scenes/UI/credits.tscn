@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://chgs0yp6buqcp"]
 
 [ext_resource type="Script" uid="uid://cjcvr1prsfdjw" path="res://Scripts/UI/credits.gd" id="1_sjkyk"]
-[ext_resource type="Theme" path="res://Assets/Themes/title_screen_buttons.tres" id="2_qwqyw"]
-[ext_resource type="FontFile" path="res://Assets/Other/Fonts/PixelOperator8.ttf" id="3_7v3ak"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjkyk"]
 bg_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
@@ -10,7 +8,7 @@ bg_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
 [sub_resource type="Theme" id="Theme_bissi"]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_sjkyk")
 
-[node name="Credits" type="Control"]
+[node name="Credits" type="Control" unique_id=599221980]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,73 +18,73 @@ grow_vertical = 2
 theme = SubResource("Theme_bissi")
 script = ExtResource("1_sjkyk")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=92515208]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 472.0
+offset_right = 750.2029
+offset_bottom = -14.3302
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.629494, 1.01889)
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer" unique_id=535541596]
 layout_mode = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/ScrollContainer" unique_id=139225494]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer" unique_id=1347050448]
 layout_mode = 2
 text = "                                                                                                                                                               "
 
-[node name="Label2" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer" unique_id=2055022215]
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer" unique_id=2087964745]
 layout_mode = 2
 
-[node name="Label4" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="Label4" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer" unique_id=592679848]
 layout_mode = 2
 
-[node name="Label5" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="Label5" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer" unique_id=457686764]
 layout_mode = 2
 
-[node name="Label6" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="Label6" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer" unique_id=609400520]
 layout_mode = 2
 
-[node name="Label7" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="Label7" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer" unique_id=494927790]
 layout_mode = 2
 
-[node name="Label8" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="Label8" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer" unique_id=782467572]
 layout_mode = 2
 
-[node name="Label9" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="Label9" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer" unique_id=376368428]
 layout_mode = 2
 
-[node name="Label10" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="Label10" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer" unique_id=429066628]
 layout_mode = 2
 
-[node name="Label11" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="Label11" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer" unique_id=431030442]
 layout_mode = 2
 
-[node name="Label12" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="Label12" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer" unique_id=2039505324]
 layout_mode = 2
 
-[node name="Label13" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="Label13" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer" unique_id=1428031673]
 layout_mode = 2
 
-[node name="Label14" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="Label14" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer" unique_id=491207455]
 layout_mode = 2
 
-[node name="Back" type="Button" parent="."]
+[node name="Back" type="Button" parent="." unique_id=1648532479]
+layout_mode = 0
 offset_right = 74.0
 offset_bottom = 24.0
-theme = ExtResource("2_qwqyw")
-theme_override_fonts/font = ExtResource("3_7v3ak")
 text = "< Back"
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

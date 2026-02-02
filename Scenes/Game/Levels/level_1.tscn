@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dyoxmn2axttox" path="res://Assets/Sprites/Background/background.png" id="1_3wyah"]
 [ext_resource type="PackedScene" uid="uid://dopbjjntrfh5c" path="res://Scenes/Game/Player/space_ship.tscn" id="1_4g8pg"]
 [ext_resource type="PackedScene" uid="uid://byswvchemdn4b" path="res://Scenes/Game/Obstacles/meteor_spawner.tscn" id="2_lwd3i"]
+[ext_resource type="AudioStream" uid="uid://cherwsocuitgc" path="res://Assets/Audio/Music/mystery-of-dandela-by-ende-dot-app.mp3" id="4_lnbw1"]
 
 [node name="level_1" type="Node2D" unique_id=247367067]
 
@@ -28,3 +29,7 @@ position = Vector2(-282, 0)
 
 [node name="meteor_spawner" parent="." unique_id=646475727 instance=ExtResource("2_lwd3i")]
 position = Vector2(843, 11)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1904892804]
+stream = ExtResource("4_lnbw1")
+autoplay = true
