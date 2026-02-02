@@ -21,6 +21,7 @@ var spawn_enemies_enabled : bool = true
 
 var player_lives = 3
 var player_reference : SpaceShip = null
+var is_in_boss : bool = false
 
 func _ready():
 	Global.game_manager = self
@@ -94,6 +95,7 @@ func game_over():
 	in_game = false
 	spawn_enemies_enabled = false
 	can_enemies_move = false
+	is_in_boss = false
 	in_game_seconds_timer.stop()
 	score_timer.stop()
 	GameMusic.stop()
@@ -101,10 +103,11 @@ func game_over():
 	current_world_2d_scene.queue_free()
 	
 func win():
-	lose_state = true
+	#lose_state = true
 	in_game = false
 	spawn_enemies_enabled = false
 	can_enemies_move = false
+	is_in_boss = false
 	in_game_seconds_timer.stop()
 	score_timer.stop()
 	GameMusic.stop()
@@ -115,9 +118,9 @@ func _on_in_game_seconds_timer_timeout():
 	if in_game and not lose_state:
 		in_game_seconds_passed += 1
 		
-	if in_game_seconds_passed >= 60:
+	if in_game_seconds_passed >= 5 and !is_in_boss:
 		set_boss_battle()
-		pass
+		is_in_boss = true
 
 func newGame() -> void:
 	TitleScreenMusic.stop()
