@@ -16,12 +16,12 @@ func take_damage(damage) -> void:
 	if health <= 0:
 		queue_free()
 
-
-func _on_meteor_damage_area_entered(area):
-	if area.is_in_group("Player"):
-		var player : SpaceShip = area.get_parent()
+func _on_body_entered(body):
+	if body.is_in_group("Player"):
+		var player : SpaceShip = body
 		player.get_hit()
-		#O directamente mandarlo a la v
+		Global.game_manager.player_got_hit()
+		#O directamente mandarlo a la v 
 
 func _on_bullet_hitbox_area_entered(area):
 	

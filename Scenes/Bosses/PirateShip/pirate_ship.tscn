@@ -91,8 +91,6 @@ radius = 44.076637
 height = 291.4336
 
 [node name="PirateShip" type="StaticBody2D" unique_id=505851544]
-collision_layer = 129
-collision_mask = 131
 script = ExtResource("1_wyf30")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=802348538]

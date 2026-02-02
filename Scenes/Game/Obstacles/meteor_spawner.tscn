@@ -6,6 +6,8 @@
 size = Vector2(10, 700)
 
 [node name="meteor_spawner" type="Area2D" unique_id=646475727]
+collision_layer = 256
+collision_mask = 0
 script = ExtResource("1_rxr4o")
 enabled = true
 time_between_spawns = 0.2

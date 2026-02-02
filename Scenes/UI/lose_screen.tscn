@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://bljydjb6q4vrq"]
 
 [ext_resource type="Script" uid="uid://be7bpntsorfjy" path="res://Scripts/UI/lose_screen.gd" id="1_2sqh4"]
-[ext_resource type="Theme" path="res://Assets/Themes/title_screen_buttons.tres" id="2_pg11k"]
-[ext_resource type="FontFile" path="res://Assets/Other/Fonts/PixelOperator8.ttf" id="3_gr6us"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1w8ta"]
 bg_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
@@ -23,7 +21,7 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.937255, 0.960784, 0.937255, 1)
 
-[node name="LoseScreen" type="Control"]
+[node name="LoseScreen" type="Control" unique_id=810907281]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,7 +31,7 @@ grow_vertical = 2
 script = ExtResource("1_2sqh4")
 metadata/_edit_use_anchors_ = true
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=437126776]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,24 +41,23 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1w8ta")
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=962406940]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1520634557]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2134200207]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 theme_override_colors/default_color = Color(0.937255, 0.960784, 0.937255, 1)
 theme_override_colors/font_selected_color = Color(0.937255, 0.960784, 0.937255, 1)
-text = "Demons ate your crops
-
+text = "Your spaceship was destroyed
 
 
 Try again?"
@@ -69,34 +66,30 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Score" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Score" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=176981443]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Your score:"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1559838558]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="YesButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="YesButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=962265269]
 custom_minimum_size = Vector2(100, 35)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-theme = ExtResource("2_pg11k")
-theme_override_fonts/font = ExtResource("3_gr6us")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2sqh4")
 text = "Yes"
 
-[node name="MainMenu" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="MainMenu" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1653613537]
 custom_minimum_size = Vector2(100, 35)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-theme = ExtResource("2_pg11k")
-theme_override_fonts/font = ExtResource("3_gr6us")
 theme_override_styles/normal = SubResource("StyleBoxFlat_pg11k")
 text = "Main menu"
 

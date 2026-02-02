@@ -34,10 +34,8 @@ func generate_random_meteor() -> Meteor:
 	
 	if extra_large_meteor and randomNumber < extra_large_meteor_percentage:
 		meteor = Global.EXTRA_LARGE_METEOR.instantiate()
-		print("Large")
 	elif small_meteor and randomNumber < small_meteor_percentage:
 		meteor = Global.SMALL_METEOR.instantiate()
-		print("small")
 		
 	return meteor
 

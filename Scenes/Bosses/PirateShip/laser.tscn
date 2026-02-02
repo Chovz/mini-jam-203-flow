@@ -8,6 +8,7 @@ radius = 8.0
 height = 720.0
 
 [node name="Laser" type="Area2D" unique_id=812339158]
+collision_layer = 64
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2136317295]
 texture_filter = 1

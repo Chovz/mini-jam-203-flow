@@ -7,7 +7,8 @@
 radius = 6.0
 
 [node name="CannonBall" type="CharacterBody2D" unique_id=2053851857]
-collision_mask = 2
+collision_layer = 64
+collision_mask = 0
 script = ExtResource("1_yfbqx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=625756001]

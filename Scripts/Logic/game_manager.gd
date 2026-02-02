@@ -17,7 +17,9 @@ var can_enemies_move : bool = false
 var in_game_seconds_passed : int = 0
 var score : float = 0
 var timePassed : int = 0
-#var spawn_enemies_enabled : bool = true
+var spawn_enemies_enabled : bool = true
+
+var player_lives = 3
 
 func _ready():
 	Global.game_manager = self
@@ -61,30 +63,37 @@ func change_gui_scene(new_scene_name: String, delete: bool = true, keep_running:
 	current_gui_scene = new_scene
 
 func restart_values_for_level():
-	#spawn_enemies_enabled = false
+	spawn_enemies_enabled = false
 	lose_state = false
 	in_game = false
 	can_enemies_move = false
-	in_game_seconds_passed = 0
 	in_game_seconds_timer.stop()
-	score = 0
-	
+	score_timer.stop()
 	
 func start_level():
-	#spawn_enemies_enabled = true
+	spawn_enemies_enabled = true
 	lose_state = false
 	in_game = true
 	can_enemies_move = true
-	in_game_seconds_passed = 0
 	in_game_seconds_timer.start()
 	score_timer.start()
-		
+
+func player_got_hit():
+	#disable player control for a sec
+	player_lives -= 1
+	
+	if player_lives > 0:
+		reload_current_level()
+	else:
+		game_over()
+
 func game_over():
 	lose_state = true
 	in_game = false
-	#spawn_enemies_enabled = false
+	spawn_enemies_enabled = false
 	can_enemies_move = false
 	in_game_seconds_timer.stop()
+	score_timer.stop()
 	GameMusic.stop()
 	change_gui_scene(Global.LOSE_SCREEN)
 	current_world_2d_scene.queue_free()
@@ -100,8 +109,11 @@ func newGame() -> void:
 	GameMusic.play()
 	restart_values_for_level()
 	change_world_2d_scene(Global.LEVEL_1)
+	player_lives = 3
+	score = 0
+	in_game_seconds_passed = 0
 	#change_gui_scene(Global.HUD)
-	#start_level()
+	start_level()
 	#gameConnections()
 
 func title_screen():
@@ -124,7 +136,8 @@ func gameConnections():
 func updateGameScore():
 	#score += ceil(POINTS_PER_FARM * farmland_on_current_scene)
 	
-	current_gui_scene.changeScore(score)
+	#current_gui_scene.changeScore(score)
+	pass
 
 func _on_score_timer_timeout() -> void:
 	if current_world_2d_scene == null:
