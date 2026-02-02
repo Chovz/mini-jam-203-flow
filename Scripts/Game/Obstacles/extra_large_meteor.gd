@@ -16,6 +16,8 @@ func take_damage(damage) -> void:
 	if health <= 0:
 		var small_meteor_1 = Global.SMALL_METEOR.instantiate()
 		var small_meteor_2 = Global.SMALL_METEOR.instantiate()
+		add_sibling(small_meteor_1)
+		add_sibling(small_meteor_2)
 		
 		small_meteor_1.position = position + Vector2.UP * METEOR_SPAWN_OFFSET
 		small_meteor_2.position = position + Vector2.DOWN * METEOR_SPAWN_OFFSET

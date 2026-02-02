@@ -70,7 +70,6 @@ func checkIfDead() -> void:
 		dead = true
 
 func _on_hitable_area_area_entered(area: Area2D) -> void:
-	print("Area entered" )
 	if area.is_in_group("Player_Bullets"):
 		var bullet_damage = 20
 		take_damage(bullet_damage)
