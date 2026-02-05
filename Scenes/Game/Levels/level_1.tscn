@@ -29,6 +29,7 @@ position = Vector2(-436, 2)
 
 [node name="meteor_spawner" parent="." unique_id=646475727 instance=ExtResource("2_lwd3i")]
 position = Vector2(843, 11)
+fast_meteor_percentage = 30.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1904892804]
 stream = ExtResource("4_lnbw1")

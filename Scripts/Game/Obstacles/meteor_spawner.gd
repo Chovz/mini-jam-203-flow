@@ -8,9 +8,12 @@ extends Node2D
 
 @export_subgroup("Enemy spawns")
 @export var small_meteor : bool = true
-@export var small_meteor_percentage : float = 100.0
 @export var extra_large_meteor : bool = true
-@export var extra_large_meteor_percentage : float = 10.0
+@export var extra_large_meteor_percentage : float = 30.0
+@export var fast_meteor : bool = true
+@export var fast_meteor_percentage : float = 10.0
+
+var is_fast_meteor = false
 
 var rng = RandomNumberGenerator.new()
 
@@ -23,8 +26,13 @@ func _ready():
 func _on_spawn_rate_timer_timeout():
 		if enabled:# and Global.game_manager.spawn_enemies_enabled:
 			var meteor : Meteor = generate_random_meteor()
+			
 			meteor.position = generate_random_position_in_spawner()
 			add_sibling(meteor)
+			
+			if is_fast_meteor:
+				spawn_fast_meteor_indicator()
+				is_fast_meteor = false
 			#Global.game_manager.current_world_2d_scene.add_child(enemy)
 
 func generate_random_meteor() -> Meteor:
@@ -32,9 +40,12 @@ func generate_random_meteor() -> Meteor:
 	
 	var meteor : Meteor
 	
-	if extra_large_meteor and randomNumber < extra_large_meteor_percentage:
+	if extra_large_meteor and fast_meteor_percentage < randomNumber and randomNumber <= extra_large_meteor_percentage:
 		meteor = Global.EXTRA_LARGE_METEOR.instantiate()
-	elif small_meteor and randomNumber < small_meteor_percentage:
+	elif fast_meteor and randomNumber <= fast_meteor_percentage:
+		meteor = Global.FAST_METEOR.instantiate()
+		is_fast_meteor = true
+	elif small_meteor:
 		meteor = Global.SMALL_METEOR.instantiate()
 		
 	return meteor
@@ -46,3 +57,5 @@ func generate_random_position_in_spawner() -> Vector2:
 	var rand_point = global_position + Vector2(x,y) 
 	return rand_point
 	
+func spawn_fast_meteor_indicator():
+	pass

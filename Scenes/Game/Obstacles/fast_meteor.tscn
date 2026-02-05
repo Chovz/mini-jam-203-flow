@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://c70n257oo2man"]
+
+[ext_resource type="Script" uid="uid://dy3kscnf8v7qf" path="res://Scripts/Game/Obstacles/fast_meteor.gd" id="1_lvj65"]
+[ext_resource type="Texture2D" uid="uid://bjxnq7pitur3u" path="res://Assets/Sprites/Meteors/MeteorLarge1.png" id="2_lvj65"]
+[ext_resource type="AudioStream" uid="uid://bkdiin7tyxgx3" path="res://Assets/Audio/SFXs/meteor_break.mp3" id="3_dc7dy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2owpl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lvj65")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mm3t8"]
+radius = 14.0
+height = 42.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dc7dy"]
+radius = 17.0
+height = 54.0
+
+[node name="fast_meteor" type="Area2D" unique_id=537986293 node_paths=PackedStringArray("audio", "hitbox", "hitbox2", "sprite") groups=["Meteors"]]
+collision_layer = 16
+script = ExtResource("1_lvj65")
+audio = NodePath("AudioStreamPlayer2D")
+hitbox = NodePath("MeteorShipCollisionShape")
+hitbox2 = NodePath("BulletHitbox/MeteorBulletCollisionShape")
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=192172183]
+sprite_frames = SubResource("SpriteFrames_2owpl")
+
+[node name="MeteorShipCollisionShape" type="CollisionShape2D" parent="." unique_id=1490556612]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_mm3t8")
+debug_color = Color(0.99999994, 0.008617571, 0.06897733, 0.41960785)
+
+[node name="BulletHitbox" type="Area2D" parent="." unique_id=164712092]
+collision_layer = 32
+collision_mask = 2
+
+[node name="MeteorBulletCollisionShape" type="CollisionShape2D" parent="BulletHitbox" unique_id=1555004645]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_dc7dy")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1883826943]
+rect = Rect2(-27, -18, 54, 36)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1032489900]
+stream = ExtResource("3_dc7dy")
+volume_db = -15.0
+
+[node name="TimeUntilItStartsMoving" type="Timer" parent="." unique_id=225679117]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_meteor_damage_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="BulletHitbox" to="." method="_on_bullet_hitbox_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="TimeUntilItStartsMoving" to="." method="_on_time_until_it_starts_moving_timeout"]
