@@ -34,3 +34,4 @@ fast_meteor_percentage = 30.0
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1904892804]
 stream = ExtResource("4_lnbw1")
 autoplay = true
+bus = &"Music"

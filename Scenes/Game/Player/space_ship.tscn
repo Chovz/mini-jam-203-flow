@@ -40,5 +40,6 @@ one_shot = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1084174103]
 stream = ExtResource("3_1srbm")
 pitch_scale = 0.4
+bus = &"Sfxs"
 
 [connection signal="timeout" from="Timers/ShootingCooldown" to="." method="_on_shooting_cooldown_timeout"]

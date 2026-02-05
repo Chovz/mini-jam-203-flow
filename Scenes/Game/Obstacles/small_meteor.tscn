@@ -46,7 +46,8 @@ shape = SubResource("CircleShape2D_lgj8q")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1032489900]
 stream = ExtResource("3_lgj8q")
-volume_db = -15.0
+volume_db = -20.0
+bus = &"Sfxs"
 
 [connection signal="area_entered" from="." to="." method="_on_meteor_damage_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

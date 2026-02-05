@@ -44,3 +44,4 @@ boss = NodePath("../PirateShip")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1806864185]
 stream = ExtResource("5_g0dql")
 autoplay = true
+bus = &"Music"
