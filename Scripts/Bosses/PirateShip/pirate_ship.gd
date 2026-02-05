@@ -19,7 +19,7 @@ const CHANGE_TIME_MIN = 10
 const CHANGE_TIME_MAX = 20
 const MINIONS_MIN = 5
 const MINIONS_MAX = 7
-const STARTING_HEALTH = 10000
+const STARTING_HEALTH = 8500
 
 var currentHealth = STARTING_HEALTH
 var currentAttack = Attack.CANNONS
