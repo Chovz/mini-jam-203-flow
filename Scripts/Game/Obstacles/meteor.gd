@@ -22,13 +22,15 @@ func take_damage(damage) -> void:
 	if health <= 0:
 		break_meteor()
 
-
 func break_meteor():
 	audio.pitch_scale += randf_range(-0.1, 0.1)
 	audio.play()
 	hitbox.set_deferred("disabled", true)
 	hitbox2.set_deferred("disabled", true)
 	sprite.hide()
+
+func delete():
+	queue_free()
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):

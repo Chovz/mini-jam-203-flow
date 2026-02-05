@@ -10,6 +10,7 @@ func _ready():
 	speed = 1
 	health = 150
 	rotation_speed = randf_range(0.015, 0.025)
+	audio.finished.connect(delete)
 
 func take_damage(damage) -> void:
 	health = health - damage
