@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cf35nxkc26sqx"]
+
+[ext_resource type="Texture2D" uid="uid://dh4j6yb167idu" path="res://Assets/Sprites/Spaceship/Explosion-Sheet.png" id="1_gdwu3"]
+[ext_resource type="Script" uid="uid://dh0dnuksb71m7" path="res://Scripts/Game/Player/explosion.gd" id="2_scyuh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scyuh"]
+atlas = ExtResource("1_gdwu3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxpsx"]
+atlas = ExtResource("1_gdwu3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy1hy"]
+atlas = ExtResource("1_gdwu3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4m5s1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scyuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxpsx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jy1hy")
+}],
+"loop": false,
+"name": &"default",
+"speed": 9.0
+}]
+
+[node name="Explosion" type="AnimatedSprite2D" unique_id=1079953904]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_4m5s1")
+autoplay = "default"
+frame = 2
+frame_progress = 1.0
+script = ExtResource("2_scyuh")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

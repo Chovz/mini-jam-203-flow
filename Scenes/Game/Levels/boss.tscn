@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dopbjjntrfh5c" path="res://Scenes/Game/Player/space_ship.tscn" id="2_3eqyv"]
 [ext_resource type="PackedScene" uid="uid://c0t38ghy53ajm" path="res://Scenes/Bosses/health_bar.tscn" id="3_hqyda"]
 [ext_resource type="AudioStream" uid="uid://4ul7yb28jyuq" path="res://Assets/Audio/Music/hades-by-ende-dot-app.mp3" id="5_g0dql"]
+[ext_resource type="PackedScene" uid="uid://xyr61xwb653v" path="res://Scenes/UI/heat_meter.tscn" id="6_gc8dr"]
+[ext_resource type="PackedScene" uid="uid://c5trfk0g27ldc" path="res://Scenes/UI/life_counter.tscn" id="7_5urp5"]
 
 [node name="boss" type="Node2D" unique_id=519426123]
 scale = Vector2(2, 2)
@@ -45,3 +47,17 @@ boss = NodePath("../PirateShip")
 stream = ExtResource("5_g0dql")
 autoplay = true
 bus = &"Music"
+
+[node name="HeatMeter" parent="." unique_id=1174874425 instance=ExtResource("6_gc8dr")]
+offset_left = 21.5
+offset_top = 340.5
+offset_right = 51.5
+offset_bottom = 348.5
+scale = Vector2(3, 3)
+
+[node name="LifeCounter" parent="." unique_id=589676076 instance=ExtResource("7_5urp5")]
+offset_left = 75.0
+offset_top = 5.5
+offset_right = 75.0
+offset_bottom = 5.5
+scale = Vector2(0.75, 0.75)

@@ -8,6 +8,9 @@ var current_level : String
 var current_gui_scene : Control
 #var options_scene : Control
 
+signal heatChange
+signal lostLife
+
 @onready var in_game_seconds_timer = $InGameSecondsTimer
 @onready var score_timer: Timer = $ScoreTimer
 
@@ -22,6 +25,7 @@ var spawn_enemies_enabled : bool = true
 var player_lives = 3
 var player_reference : SpaceShip = null
 var is_in_boss : bool = false
+var heat = 0
 
 func _ready():
 	Global.game_manager = self
@@ -84,6 +88,9 @@ func start_level():
 func player_got_hit():
 	#disable player control for a sec
 	player_lives -= 1
+	heat = 0
+	in_game_seconds_passed = 0
+	lostLife.emit()
 	
 	if player_lives > 0:
 		reload_current_level()
@@ -169,3 +176,9 @@ func _on_score_timer_timeout() -> void:
 func set_boss_battle() -> void:
 	change_world_2d_scene(Global.BOSS)
 	
+func updateHeat(heatness: int):
+	heat += heatness
+	
+	if heat < 0:
+		heat = 0
+	heatChange.emit()

@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dopbjjntrfh5c" path="res://Scenes/Game/Player/space_ship.tscn" id="1_4g8pg"]
 [ext_resource type="PackedScene" uid="uid://byswvchemdn4b" path="res://Scenes/Game/Obstacles/meteor_spawner.tscn" id="2_lwd3i"]
 [ext_resource type="AudioStream" uid="uid://cherwsocuitgc" path="res://Assets/Audio/Music/mystery-of-dandela-by-ende-dot-app.mp3" id="4_lnbw1"]
+[ext_resource type="PackedScene" uid="uid://xyr61xwb653v" path="res://Scenes/UI/heat_meter.tscn" id="5_w6qyb"]
+[ext_resource type="PackedScene" uid="uid://c5trfk0g27ldc" path="res://Scenes/UI/life_counter.tscn" id="6_nynvh"]
 
 [node name="level_1" type="Node2D" unique_id=247367067]
 
@@ -35,3 +37,17 @@ fast_meteor_percentage = 30.0
 stream = ExtResource("4_lnbw1")
 autoplay = true
 bus = &"Music"
+
+[node name="HeatMeter" parent="." unique_id=1174874425 instance=ExtResource("5_w6qyb")]
+offset_left = -598.0
+offset_top = 321.0
+offset_right = -568.0
+offset_bottom = 329.0
+scale = Vector2(5, 5)
+
+[node name="LifeCounter" parent="." unique_id=589676076 instance=ExtResource("6_nynvh")]
+offset_left = -454.99997
+offset_top = -354.0
+offset_right = -454.99997
+offset_bottom = -305.0
+scale = Vector2(1.75, 1.75)

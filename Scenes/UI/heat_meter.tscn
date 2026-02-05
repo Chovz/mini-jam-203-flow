@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://xyr61xwb653v"]
+
+[ext_resource type="Texture2D" uid="uid://jv0juo4qa1p" path="res://Assets/Sprites/UI/Heat1.png" id="1_qs1wn"]
+[ext_resource type="Texture2D" uid="uid://dsib5bj4ehvjr" path="res://Assets/Sprites/UI/Heat2.png" id="2_otrc0"]
+[ext_resource type="Script" uid="uid://dmtx0s2s1jrpe" path="res://Scripts/UI/heat_meter.gd" id="3_otrc0"]
+
+[node name="HeatMeter" type="TextureProgressBar" unique_id=1174874425]
+offset_right = 30.0
+offset_bottom = 8.0
+rotation = -1.5707964
+value = 50.0
+texture_under = ExtResource("1_qs1wn")
+texture_progress = ExtResource("2_otrc0")
+script = ExtResource("3_otrc0")

@@ -4,12 +4,14 @@ const SPEED = 450.0
 const SPACE_SHIP_WIDTH = 54
 const BULLET_WIDTH = 5
 const BULLET_SPAWN_OFFSET : Vector2 = Vector2(BULLET_WIDTH + SPACE_SHIP_WIDTH/2, 2)
+const EXPLOSION = preload("res://Scenes/Bosses/PirateShip/explosion.tscn")
 
 @onready var shooting_cooldown: Timer = $Timers/ShootingCooldown
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var isAttacking: bool = false
 var canSpawnBullet: bool = true
+var overheated = false
 
 func _physics_process(delta):
 	playerInput()
@@ -53,10 +55,16 @@ func playerActions() -> void:
 		
 	if isAttacking:
 		if canSpawnBullet:
+			Global.game_manager.updateHeat(2)
 			audio_stream_player_2d.play()
 			spawn_bullet()
 			canSpawnBullet = false
 			shooting_cooldown.start()
+			if Global.game_manager.heat >= 100:
+				var explosion = EXPLOSION.instantiate()
+				explosion.position = Vector2(25, 1)
+				add_child(explosion)
+				overheated = true
 			
 func spawn_bullet() -> void:
 	var bullet = Global.BULLET.instantiate()
@@ -74,4 +82,13 @@ func get_hit() -> void:
 	pass
 
 func _on_shooting_cooldown_timeout():
-	canSpawnBullet = true
+	if !overheated:
+		canSpawnBullet = true
+		
+		if Global.game_manager.heat > 0 && !isAttacking:
+			Global.game_manager.updateHeat(-3)
+	else:
+		Global.game_manager.updateHeat(-5)
+		if Global.game_manager.heat == 0:
+			overheated = false
+		shooting_cooldown.start()
