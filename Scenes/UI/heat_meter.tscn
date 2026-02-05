@@ -12,3 +12,8 @@ value = 50.0
 texture_under = ExtResource("1_qs1wn")
 texture_progress = ExtResource("2_otrc0")
 script = ExtResource("3_otrc0")
+
+[node name="Shake" type="Timer" parent="." unique_id=1858716546]
+wait_time = 0.05
+
+[connection signal="timeout" from="Shake" to="." method="_on_shake_timeout"]
