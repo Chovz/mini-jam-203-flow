@@ -9,11 +9,13 @@ var rng = RandomNumberGenerator.new()
 func _ready():
 	speed = 1
 	health = 150
+	rotation_speed = randf_range(0.015, 0.025)
 
 func take_damage(damage) -> void:
 	health = health - damage
 	
 	if health <= 0:
+		break_meteor()
 		var small_meteor_1 = Global.SMALL_METEOR.instantiate()
 		var small_meteor_2 = Global.SMALL_METEOR.instantiate()
 		add_sibling(small_meteor_1)
@@ -28,8 +30,6 @@ func take_damage(damage) -> void:
 		
 		get_tree().current_scene.add_child(small_meteor_1)
 		get_tree().current_scene.add_child(small_meteor_2)
-		
-		queue_free()
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

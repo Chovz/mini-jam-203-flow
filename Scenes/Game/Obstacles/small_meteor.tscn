@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dbdvh2q356pog" path="res://Scripts/Game/Obstacles/small_meteor.gd" id="1_2owpl"]
 [ext_resource type="Texture2D" uid="uid://cvua68gwttdod" path="res://Assets/Sprites/Meteors/MeteorSmall1.png" id="1_trhyd"]
+[ext_resource type="AudioStream" uid="uid://bkdiin7tyxgx3" path="res://Assets/Audio/SFXs/meteor_break.mp3" id="3_lgj8q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2owpl"]
 animations = [{
@@ -19,9 +20,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_lgj8q"]
 radius = 13.0
 
-[node name="small_meteor" type="Area2D" unique_id=537986293 groups=["Meteors"]]
+[node name="small_meteor" type="Area2D" unique_id=537986293 node_paths=PackedStringArray("audio", "hitbox", "hitbox2", "sprite") groups=["Meteors"]]
 collision_layer = 16
 script = ExtResource("1_2owpl")
+audio = NodePath("AudioStreamPlayer2D")
+hitbox = NodePath("BulletHitbox/MeteorBulletCollisionShape")
+hitbox2 = NodePath("MeteorShipCollisionShape")
+sprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=192172183]
 sprite_frames = SubResource("SpriteFrames_2owpl")
@@ -38,6 +43,10 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_lgj8q")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1883826943]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1032489900]
+stream = ExtResource("3_lgj8q")
+volume_db = -15.0
 
 [connection signal="area_entered" from="." to="." method="_on_meteor_damage_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,20 +1,34 @@
 class_name Meteor extends Area2D
 
 var speed = 2
+var rotation_speed : float
 var health = 100
 var direction : Vector2 = Vector2.LEFT
+@export var audio : AudioStreamPlayer2D
+@export var hitbox : CollisionShape2D
+@export var hitbox2 : CollisionShape2D
+@export var sprite : AnimatedSprite2D
 
 func _physics_process(delta):
 	move()
 	
 func move() -> void:
+	rotate(rotation_speed) 
 	position = position + direction * speed
 
 func take_damage(damage) -> void:
 	health = health - damage
 	
 	if health <= 0:
-		queue_free()
+		break_meteor()
+
+
+func break_meteor():
+	audio.pitch_scale += randf_range(-0.1, 0.1)
+	audio.play()
+	hitbox.set_deferred("disabled", true)
+	hitbox2.set_deferred("disabled", true)
+	sprite.hide()
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):

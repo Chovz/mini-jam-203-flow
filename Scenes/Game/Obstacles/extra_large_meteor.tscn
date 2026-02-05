@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cd3rvg6wkvw15" path="res://Scripts/Game/Obstacles/extra_large_meteor.gd" id="1_07xss"]
 [ext_resource type="Texture2D" uid="uid://caxsxqaw3ciwj" path="res://Assets/Sprites/Meteors/MeteorExtraLarge1.png" id="2_oc5wl"]
+[ext_resource type="AudioStream" uid="uid://bkdiin7tyxgx3" path="res://Assets/Audio/SFXs/meteor_break.mp3" id="3_oc5wl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2owpl"]
 animations = [{
@@ -22,9 +23,13 @@ height = 56.0
 radius = 26.0
 height = 72.0
 
-[node name="extra_large_meteor" type="Area2D" unique_id=537986293 groups=["Meteors"]]
+[node name="extra_large_meteor" type="Area2D" unique_id=537986293 node_paths=PackedStringArray("audio", "hitbox", "hitbox2", "sprite") groups=["Meteors"]]
 collision_layer = 16
 script = ExtResource("1_07xss")
+audio = NodePath("AudioStreamPlayer2D")
+hitbox = NodePath("MeteorShipCollisionShape")
+hitbox2 = NodePath("BulletHitbox/MeteorBulletCollisionShape")
+sprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=192172183]
 sprite_frames = SubResource("SpriteFrames_2owpl")
@@ -44,6 +49,11 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_oc5wl")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=962854966]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1711735172]
+stream = ExtResource("3_oc5wl")
+volume_db = -12.0
+pitch_scale = 0.7
 
 [connection signal="area_entered" from="." to="." method="_on_meteor_damage_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
