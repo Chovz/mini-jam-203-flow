@@ -10,4 +10,4 @@ func _ready() -> void:
 
 func updateLives():
 	lives = Global.game_manager.player_lives
-	label.text = "x" + str(lives)
+	label.text = "x " + str(lives)

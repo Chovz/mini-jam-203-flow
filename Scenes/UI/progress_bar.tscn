@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bfejivyd2ie02"]
+
+[ext_resource type="Script" uid="uid://rnhkcmxynaq0" path="res://Scripts/UI/progress_bar.gd" id="1_gq3yj"]
+[ext_resource type="Texture2D" uid="uid://c4gtawtun0ifi" path="res://Assets/Sprites/Spaceship/Ship.png" id="2_t10lk"]
+[ext_resource type="Texture2D" uid="uid://dwqocaxg6vobj" path="res://Assets/Sprites/Bosses/PirateShip/boss icon.png" id="3_0qgyi"]
+
+[node name="progress bar" type="Control" unique_id=478104515]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gq3yj")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1183695727]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 22.0
+offset_right = 208.0
+offset_bottom = 29.0
+max_value = 60.0
+step = 1.0
+show_percentage = false
+
+[node name="player indicator" type="TextureRect" parent="." unique_id=697178849]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 54.0
+offset_bottom = 36.0
+texture = ExtResource("2_t10lk")
+stretch_mode = 2
+
+[node name="boss indicator" type="TextureRect" parent="." unique_id=1496550039]
+layout_mode = 0
+offset_left = 188.0
+offset_right = 228.0
+offset_bottom = 40.0
+texture = ExtResource("3_0qgyi")
+
+[connection signal="value_changed" from="ProgressBar" to="." method="_on_progress_bar_value_changed"]

@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://c4gtawtun0ifi" path="res://Assets/Sprites/Spaceship/Ship.png" id="1_51nat"]
 [ext_resource type="Script" uid="uid://bt7t2xpxldc6l" path="res://Scripts/UI/life_counter.gd" id="1_l6jw7"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l6jw7"]
+blend_mode = 1
+
 [node name="LifeCounter" type="Control" unique_id=589676076]
 layout_mode = 3
 anchors_preset = 0
@@ -13,18 +16,19 @@ script = ExtResource("1_l6jw7")
 [node name="Label" type="Label" parent="." unique_id=1311041706]
 texture_filter = 1
 layout_mode = 0
-offset_left = -96.0
-offset_right = -78.0
-offset_bottom = 49.0
-text = "x3
+offset_left = -45.0
+offset_top = -2.0
+offset_right = -22.0
+offset_bottom = 47.0
+text = "x 3
 "
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1783758938]
+material = SubResource("CanvasItemMaterial_l6jw7")
 layout_mode = 0
-offset_left = -75.0
+offset_left = -99.0
 offset_top = 5.0
-offset_right = -21.0
+offset_right = -45.0
 offset_bottom = 54.0
 texture = ExtResource("1_51nat")
 stretch_mode = 2
-flip_h = true

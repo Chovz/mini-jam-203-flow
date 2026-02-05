@@ -10,6 +10,7 @@ var current_gui_scene : Control
 
 signal heatChange
 signal lostLife
+signal updateTime
 
 @onready var in_game_seconds_timer = $InGameSecondsTimer
 @onready var score_timer: Timer = $ScoreTimer
@@ -90,10 +91,12 @@ func player_got_hit():
 	player_lives -= 1
 	heat = 0
 	in_game_seconds_passed = 0
+	in_game_seconds_timer.stop()
 	lostLife.emit()
 	
 	if player_lives > 0:
 		reload_current_level()
+		in_game_seconds_timer.start()
 	else:
 		game_over()
 
@@ -122,6 +125,7 @@ func win():
 	current_world_2d_scene.queue_free()
 
 func _on_in_game_seconds_timer_timeout():
+	updateTime.emit()
 	if in_game and not lose_state:
 		in_game_seconds_passed += 1
 		

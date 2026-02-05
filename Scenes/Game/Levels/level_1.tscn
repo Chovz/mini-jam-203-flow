@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cherwsocuitgc" path="res://Assets/Audio/Music/mystery-of-dandela-by-ende-dot-app.mp3" id="4_lnbw1"]
 [ext_resource type="PackedScene" uid="uid://xyr61xwb653v" path="res://Scenes/UI/heat_meter.tscn" id="5_w6qyb"]
 [ext_resource type="PackedScene" uid="uid://c5trfk0g27ldc" path="res://Scenes/UI/life_counter.tscn" id="6_nynvh"]
+[ext_resource type="PackedScene" uid="uid://bfejivyd2ie02" path="res://Scenes/UI/progress_bar.tscn" id="7_bt7c4"]
 
 [node name="level_1" type="Node2D" unique_id=247367067]
 
@@ -51,3 +52,10 @@ offset_top = -354.0
 offset_right = -454.99997
 offset_bottom = -305.0
 scale = Vector2(1.75, 1.75)
+
+[node name="progress bar" parent="." unique_id=478104515 instance=ExtResource("7_bt7c4")]
+offset_left = -230.0
+offset_top = 259.0
+offset_right = -230.0
+offset_bottom = 259.0
+scale = Vector2(2, 2)
