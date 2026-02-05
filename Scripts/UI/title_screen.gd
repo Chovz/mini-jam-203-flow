@@ -8,5 +8,5 @@ func _on_credits_pressed() -> void:
 	Global.game_manager.change_gui_scene("credits")
 
 
-#func _on_options_pressed() -> void:
-	#Global.game_manager.change_gui_scene("options")
+func _on_options_pressed() -> void:
+	Global.game_manager.change_gui_scene("options")
